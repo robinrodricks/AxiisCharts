@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HDividedBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:debug="org.axiis.debug.*">
+	<mx:Script>
+		<![CDATA[
+			import org.axiis.core.ILayout;
+			import org.axiis.core.AxiisSprite;
+			import mx.events.ListEvent;
+			
+			[Bindable]
+			public var layout:ILayout;
+			
+			protected var lastSprite:AxiisSprite;
+
+			protected function tree_changeHandler(event:ListEvent):void
+			{
+				if(lastSprite)
+					lastSprite.filters = [];
+				if(event.target.selectedItem is AxiisSprite)
+				{
+					event.target.selectedItem.filters = [new GlowFilter(0,1,10,10,4)];
+					lastSprite = AxiisSprite(event.target.selectedItem);
+				}
+			}
+		]]>
+	</mx:Script>
+	<mx:Tree id="tree" height="100%" dataProvider="{layout}" change="tree_changeHandler(event)">
+		<mx:dataDescriptor>
+			<debug:LayoutDescriptor/>
+		</mx:dataDescriptor>
+	</mx:Tree>
+
+		<mx:columns>
+			<mx:DataGridColumn dataField="target" />
+			<mx:DataGridColumn dataField="target" />
+			<mx:DataGridColumn dataField="property" />
+			<mx:DataGridColumn dataField="value" />
+			<mx:DataGridColumn headerText="current" >
+				<mx:itemRenderer>
+					<mx:Component>
+						<mx:Text text="{data.target[data.property]}"/>
+					</mx:Component>
+				</mx:itemRenderer>
+			</mx:DataGridColumn>
+		</mx:columns>
+	</mx:DataGrid-->
+	-->
+</mx:HDividedBox>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:axiis="http://www.axiis.org/2009"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:charts="org.axiis.charts.*"
+	xmlns:geometry="com.degrafa.geometry.*" 
+	xmlns:Examples="Examples.*"
+	backgroundGradientColors="[0xDDDDDD,0xF5F5F5]"
+	layout="absolute"
+	creationComplete="start();" viewSourceURL="srcview/index.html" xmlns:debug="org.axiis.debug.*" >
+ 
+	<mx:Script>
+		<![CDATA[
+			import org.axiis.core.AxiisSprite;
+			import org.axiis.data.DataSet;
+
+			private var ds:DataSet = new DataSet();
+
+			public function start():void
+			{
+				//process our data
+				ds.processXmlString(countryData);
+
+				//perform aggregations to create data values for our nested wedges
+				ds.aggregateData(ds.data.object, "country.medal", ["count"]);
+				ds.aggregateData(ds.data.object, "country", ["aggregates.medal_count_sum"]);
+
+				//Set our max scale value.
+				dataProvider = ds.data.object.country;
+
+				dc.invalidateDisplayList();
+			}
+
+			//Currently not being used - DataTips being refactored
+			private function dataTipFunction(axiisSprite:AxiisSprite):String
+			{
+				if (axiisSprite.data["competitors"] != null && axiisSprite.data["name"] != null)
+				{
+					return "<b>" + axiisSprite.data["name"] + " Total Medals</b><br/>" + axiisSprite.data["competitors"];
+				}
+				else if (axiisSprite.data["count"] != null && axiisSprite.data["category"] != null)
+				{
+					return "<b>" + axiisSprite.data["category"] + " Total Medals</b><br/>" + axiisSprite.data["count"];
+				}
+				return "";
+			}
+
+			//Used to rotate wedge labels 180 degrees for readability
+			private function transposeLabel1(wedge:Object):Boolean
+			{
+				if ((wedge.startAngle + wedge.arc / 2) > 90 && (wedge.startAngle + wedge.arc / 2) < 270)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		
+			public function colorFunction(val:Object):Number
+			{
+				return Number(val) & -0x333333;
+			}
+		]]>
+	</mx:Script>
+	<mx:Style source="styles/Axiis_Examples.css"/>
+	
+	<!-- Data payload -->
+	<mx:String id="countryData" source="data/2008_Olympics.xml"/>
+
+	<!-- Data Provider -->
+	<mx:Object id="dataProvider"/>
+
+	<!-- Preference Settings -->
+	<mx:Number id="angleGap">.5</mx:Number>
+	<mx:Number id="innerRadi1">.4</mx:Number>
+	<mx:Number id="innerRadi2">.78</mx:Number>
+	<mx:Number id="outerRadi1">.78</mx:Number>
+	<mx:Number id="outerRadi2">1</mx:Number>
+
+	<!-- Common calculations used by geometries -->
+	<axiis:NumericExpression id="outerRadius" value="{(dc.width/2)*outerRadi2}"/>
+	<axiis:NumericExpression id="center" value="{boundsRadius.value/2}"/>
+	<axiis:NumericExpression id="boundsRadius" value="{Math.min(this.height,this.width)*.7}"/>
+	
+	<!-- Background template -->
+	<Examples:ExampleBackground width="{this.width}" height="{this.height}" title="Wedge Stack Graph" subTitle="Custom Visualization"/>
+
+	<!-- Data Canvas that holds our geometries -->
+	<axiis:DataCanvas id="dc"
+		width="{boundsRadius.value}"
+		height="{boundsRadius.value}"
+		horizontalCenter="0"
+		verticalCenter="0"
+		showDataTips="false">
+		<axiis:layouts>
+			<!-- innerWedgeGroup:  This renders the inner ring of wedges -->
+			
+			<axiis:WedgeStackGroup id="innerWedgeGroup"
+				dataProvider="{dataProvider}"
+				startAngle="0"
+				outerRadiusRatio=".78"
+				width="{dc.width}"
+				height="{dc.height}"
+				labelField="name"
+				dataField="aggregates.medal_count_sum"
+				fill="{innerWedgeFill}"
+				fontFamily="Myriad Pro"
+				fontSize="14"
+				fontColor="0xFFFFFF" 
+				>
+ 				
+ 				<axiis:layouts>
+ 					<axiis:WedgeStackGroup id="outerWedgeGroup"
+ 						dataProvider="{innerWedgeGroup.currentDatum.medal}"
+ 						maxArc="{innerWedgeGroup.wedge.arc}"
+ 						startAngle="{innerWedgeGroup.wedge.startAngle}"
+ 						alignTextOuter="true"
+ 						angleGap="0"
+ 						innerRadiusRatio=".78"
+ 						outerRadiusRatio="1"
+ 						labelRadiusRatio="1.035"
+ 						width="{dc.width}"
+ 						height="{dc.height}"
+ 						labelField="category"
+ 						dataField="count"
+ 						dataTipLabelFunction="{dataTipFunction}"
+ 						fill="{outerWedgeFill}"
+ 						stroke="{outerWedgeStroke}"
+ 						fontSize="11"
+ 						fontColor="{wedgePalette.currentColor}">
+ 						
+ 						<!-- State for outer wedge to change color and make it move out further -->
+						<axiis:states>
+							<axiis:State enterStateEvent="mouseOver" 
+								exitStateEvent="mouseOut"
+								propagateToAncestorsSiblings="false"
+								propagateToAncestors="true"
+								propagateToDescendents="false"
+								targets="{[outerWedgeFill,outerWedgeGroup.wedge,outerWedgeGroup.label,innerWedgeGroup.label]}"
+								properties="{['color','outerRadius','textColor','fontWeight']}"
+								values="{[colorFunction,outerRadius.value*1.2,0xFFFFFF,'bold']}" />
+						</axiis:states>
+
+					</axiis:WedgeStackGroup>
+ 					
+ 				</axiis:layouts>
+
+				<axiis:states>
+					 
+				<axiis:State enterStateEvent="mouseOver"
+						exitStateEvent="mouseOut"
+						propagateToAncestorsSiblings="false"
+						propagateToAncestors="false"
+						propagateToDescendents="true"
+						targets="{[innerWedgeFillStop1,outerWedgeFill, outerWedgeGroup ,outerWedgeGroup.label]}"	
+						properties="{['color','color','outerRadiusRatio','fontWeight']}"
+						values="{[colorFunction,colorFunction,1.1,'bold']}"/>
+						
+				</axiis:states>
+
+			</axiis:WedgeStackGroup>
+		</axiis:layouts>
+
+		<!-- Palletes used to generate our colors -->
+		<axiis:palettes>
+			<axiis:LayoutAutoPalette id="wedgePalette" colorFrom="0xD20000" colorTo="0x0000BD" layout="{innerWedgeGroup}"/>
+			<axiis:LayoutAutoPalette id="outerWedgePalette" colorFrom="{wedgePalette.currentColor | 0x2B2B11}" colorTo="{wedgePalette.currentColor | 0x151511}" layout="{outerWedgeGroup}"/>
+		</axiis:palettes>
+
+		<!-- Fills that use the colors generated by our palettes -->
+		<axiis:fills>
+			<degrafa:RadialGradientFill id="innerWedgeFill" cx="{innerWedgeGroup.width/2}" cy="{innerWedgeGroup.width/2}" radius="{(innerWedgeGroup.width/2)*innerRadi2}">
+				<degrafa:GradientStop color="{wedgePalette.currentColor | 0x333333}" ratio=".6" />
+				<degrafa:GradientStop color="{wedgePalette.currentColor}" id="innerWedgeFillStop1" ratio=".92" />
+				<degrafa:GradientStop color="{wedgePalette.currentColor &amp; -0x352234}" ratio="1"/>
+			</degrafa:RadialGradientFill>
+			<degrafa:SolidFill color="{outerWedgePalette.currentColor}" id="outerWedgeFill"/>
+			<degrafa:SolidFill color="0xFFFF00" id="rollOverFill0" alpha=".9"/>
+			<degrafa:SolidFill color="0xFF00FF" id="rollOverFill1" alpha=".9"/>
+		</axiis:fills>
+
+		<axiis:strokes>
+			<degrafa:SolidStroke color="0" alpha=".6" pixelHinting="true" id="outerWedgeStroke"/>
+		</axiis:strokes>
+			
+	</axiis:DataCanvas>
+
+	<mx:Label fontSize="16"
+		fontFamily="Myriad Pro"
+		htmlText="2008 Olympic Medals"
+		bottom="{height*.025}"
+		horizontalCenter="0"
+		color="0"/>
+
+</mx:Application>

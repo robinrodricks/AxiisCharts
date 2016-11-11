@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---
+	HWaterfallLayout modifies its reference geometry (a RegularRectangle) into
+	the positions and dimensions to produces a waterfall chart.
+	
+	A waterfall chart shows increases and decreases in a value as it progress
+	from its initial to its final value.
+	
+	@see http://peltiertech.com/Excel/Charts/Waterfall.html
+-->
+<axiis:BaseLayout xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:degrafa="http://www.degrafa.com/2007" xmlns:axiis="http://www.axiis.org/2009">
+	
+	<mx:Script>
+		<![CDATA[
+			private function computeY(iteration:int,property:Number):Number
+			{
+				if(dataItems.length == 0 || iteration == 0 || iteration == dataItems.length - 1)
+					return 0;
+				
+				var currValue:Number = dataItems[iteration][dataField];
+				var prevValue:Number = dataItems[iteration - 1][dataField];
+				var delta:Number = currValue - prevValue;
+				return delta > 0
+					? linearScale.valueToLayout(prevValue)
+					: linearScale.valueToLayout(currValue);
+					
+				return toReturn;
+			}
+			
+			private function computeHeight(iteration:int,property:Number):Number
+			{
+				if(dataItems.length == 0)
+					return 0;
+				
+				var currValue:Number = dataItems[iteration][dataField];
+				if(iteration == 0 || iteration == dataItems.length - 1)
+				{
+					return linearScale.valueToLayout(currValue);
+				}
+				else
+				{				
+					var prevValue:Number = dataItems[iteration - 1][dataField];				
+					var delta:Number = Math.abs(currValue - prevValue);
+					return linearScale.valueToLayout(delta);
+				}
+			}
+		]]>
+	</mx:Script>
+	
+	<!---
+		The property that of the items in the dataProvider that should be used
+		to determine the values shown in the waterfall chart. 
+	-->
+	<mx:String id="dataField"/>
+	
+	<!---
+		@private
+	-->
+	<axiis:LinearScale id="linearScale" 
+		dataProvider="{dataProvider}"
+		dataField="{dataField}"
+		minValue="0" 
+		minLayout="0"
+		maxLayout="{height}"/>
+	
+	<axiis:referenceRepeater> 
+		<axiis:GeometryRepeater>
+			<axiis:geometry>
+				<degrafa:RegularRectangle x="0" y="0" width="{width / itemCount - 5}" height="{height}"/>
+			</axiis:geometry>
+			<axiis:modifiers>
+				<axiis:PropertyModifier property="x" modifierOperator="add" modifier="{width / itemCount}"/>
+				<axiis:PropertyModifier property="y" modifierOperator="none" modifier="{computeY}"/>
+				<axiis:PropertyModifier property="height" modifierOperator="none" modifier="{computeHeight}"/>
+			</axiis:modifiers>
+		</axiis:GeometryRepeater>
+	</axiis:referenceRepeater>
+	
+</axiis:BaseLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataCanvas xmlns="org.axiis.*" xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:layouts="org.axiis.layouts.*" xmlns:degrafa="http://www.degrafa.com/2007" xmlns:scale="org.axiis.layouts.scale.*">
+
+	<mx:String id="verticalField"/>
+	<mx:String id="horizontalField"/>
+	<mx:Boolean id="pointOut">true</mx:Boolean>
+	<mx:Number id="percentGap">.3</mx:Number>
+	
+	<scale:LinearScale dataProvider="{dataProvider}" dataField="{verticalField}" minLayout="{myLayout.innerDiameter}" maxLayout="{myLayout.outerDiameter}" minValue="0" id="vScale"/>
+	<layouts>
+			<layouts:CircleBoxLayout id="myLayout"
+				dataProvider="{dataProvider}"
+			 	dataField="{horizontalField}"
+			 	width="{Math.min(width,height)}"
+			 	height="{Math.min(width,height)}"
+			    innerDiameter="50"
+			 	outerDiameter="{Math.min(this.width,this.height)/2}"
+			 	pointOut="{pointOut}"
+			 	percentGap="{percentGap}"
+			 	>
+				<layouts:drawingGeometries> 
+					<degrafa:RoundedRectangle cornerRadius="3" id="myCol"
+						x="{myLayout.currentReference.x}"
+						y="{myLayout.currentReference.y+(
+							(pointOut)
+							? 0
+							: vScale.maxLayout - vScale.valueToLayout(myLayout.currentDatum[verticalField])
+						)}" 
+						width="{myLayout.currentReference.width}"
+						height="{vScale.valueToLayout(myLayout.currentDatum[verticalField])}"
+						fill="{barFill}"
+						stroke="{myStroke}">
+						<degrafa:transform>
+							<degrafa:RotateTransform centerX="{myLayout.rotate.centerX}" centerY="{myLayout.rotate.centerY}" angle="{myLayout.rotate.angle}"/>
+						</degrafa:transform>
+						<degrafa:geometry>
+							<degrafa:RasterText fontSize="14" fontFamily="Arial" height="{myCol.width}" x="{myLayout.currentReference.x+myCol.width/2}" y="{myLayout.currentReference.y}" text="{myLayout.currentDatum[horizontalField]}"  id="myLabel">
+								<degrafa:transform>
+									<degrafa:RotateTransform registrationPoint="centerLeft" angle="90"/>
+								</degrafa:transform>
+							</degrafa:RasterText>
+						</degrafa:geometry>
+					</degrafa:RoundedRectangle>
+				</layouts:drawingGeometries>
+			</layouts:CircleBoxLayout>
+		</layouts>
+				
+		<fills>
+			<degrafa:LinearGradientFill id="barFill" angle="90">
+				<degrafa:GradientStop color="0xDDFF00" alpha=".8"/><degrafa:GradientStop color="0xFFFFFF" alpha=".2"/>
+			</degrafa:LinearGradientFill>
+		</fills>
+		
+		<strokes>
+			<degrafa:SolidStroke id="myStroke" weight="1" color="black" alpha=".5"/>
+		</strokes>
+</DataCanvas>

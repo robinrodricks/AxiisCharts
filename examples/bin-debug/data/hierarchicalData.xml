@@ -1,0 +1,68 @@
+<nodes>
+	<node value="80">
+			<node value="50">
+				<node value="20"/>
+				<node value="40"/>
+				<node value="30"/>
+			</node>
+			<node value="60">
+				<node value="35"/>
+				<node value="25"/>
+				<node value="45"/>
+			</node>
+			<node value="70">
+				<node value="50"/>
+				<node value="30"/>
+				<node value="40"/>
+			</node>
+			<node value="80">
+				<node value="35"/>
+				<node value="45"/>
+				<node value="55"/>
+			</node>
+	</node>
+	<node value="90">
+		<node value="70">
+			<node value="25"/>
+			<node value="35"/>
+			<node value="45"/>
+		</node>
+		<node value="60">
+			<node value="20"/>
+			<node value="30"/>
+			<node value="40"/>
+		</node>
+		<node value="90">
+			<node value="35"/>
+			<node value="45"/>
+			<node value="55"/>
+		</node>
+		<node value="80">
+			<node value="30"/>
+			<node value="40"/>
+			<node value="50"/>
+		</node>
+	</node>
+	<node value="120">
+		<node value="80">
+			<node value="25"/>
+			<node value="35"/>
+			<node value="45"/>
+		</node>
+		<node value="70">
+			<node value="20"/>
+			<node value="30"/>
+			<node value="40"/>
+		</node>
+		<node value="90">
+			<node value="30"/>
+			<node value="40"/>
+			<node value="50"/>
+		</node>
+		<node value="100">
+			<node value="35"/>
+			<node value="45"/>
+			<node value="10"/>
+		</node>
+	</node>
+</nodes>

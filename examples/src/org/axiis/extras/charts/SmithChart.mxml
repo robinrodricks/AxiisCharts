@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+<DataCanvas xmlns="org.axiis.*" 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:axis="org.axiis.extras.charts.axis.*"
+	xmlns:axiis="http://www.axiis.org/2009">
+	
+	<mx:Script>
+		<![CDATA[
+			import org.axiis.managers.FreeDataTipManager;
+			import mx.formatters.NumberFormatter;
+			import com.degrafa.paint.LinearGradientFill;
+			import com.degrafa.GraphicPoint;
+			import com.vizsage.as3mathlib.math.alg.Complex;
+			import com.degrafa.paint.ComplexFill;
+			import mx.collections.ArrayCollection;
+			import org.axiis.extras.charts.axis.SmithChartAxisData;
+			import org.axiis.extras.layouts.scale.SmithChartScale;
+			import com.degrafa.paint.SolidStroke;
+			
+			[Bindable]
+			protected var freeDataTipManager:FreeDataTipManager = new FreeDataTipManager();
+			
+			[Bindable]
+			public var sc_scale:SmithChartScale = null;
+			
+			public var dataFills:ArrayCollection = null;
+			public var lineColors:ArrayCollection = null;
+			
+			[Bindable]
+			public var majorStroke:SolidStroke = SmithChartAxisData.majorStroke;
+			[Bindable]
+			private var minorStroke:SolidStroke = SmithChartAxisData.minorStroke;
+			
+			//returns the centerX value for a given iteration
+			private function centerXModifier(iterationCount:int, value:Number):Number
+			{
+				var imped:Complex = smithChartLayout.dataProvider[iterationCount].imped as Complex;
+				var point:GraphicPoint = sc_scale.valueToLayout(imped);
+				return point.x;
+			}
+			
+			//returns the centerX value for a given iteration
+			private function centerYModifier(iterationCount:int, value:Number):Number
+			{
+				var imped:Complex = smithChartLayout.dataProvider[iterationCount].imped as Complex;
+				var point:GraphicPoint = sc_scale.valueToLayout(imped);
+				return point.y;
+			}
+			
+			//returns the fill for a given data point
+			private function fillModifier(iterationCount:int, value:LinearGradientFill):LinearGradientFill
+			{
+				return dataFills[impedanceLayout.currentIndex];
+			}
+
+			//returns the x value for a given iteration of the connecting lines
+			private function lineXModifier(iterationCount:int, value:Number):Number
+			{
+				if(iterationCount == 0)
+					return 0;
+					
+				var imped:Complex = smithChartLineLayout.dataProvider[iterationCount-1].imped as Complex;
+				var point:GraphicPoint = sc_scale.valueToLayout(imped);
+				return point.x;
+			}
+
+			//returns the y value for a given iteration of the connecting lines
+			private function lineYModifier(iterationCount:int, value:Number):Number
+			{
+				if(iterationCount == 0)
+					return 0;
+					
+				var imped:Complex = smithChartLineLayout.dataProvider[iterationCount-1].imped as Complex;
+				var point:GraphicPoint = sc_scale.valueToLayout(imped);
+				return point.y;
+			}
+
+			//returns the x1 value for a given iteration of the connecting lines
+			private function lineX1Modifier(iterationCount:int, value:Number):Number
+			{
+				if(iterationCount == 0)
+					return 0;
+
+				var imped:Complex = smithChartLineLayout.dataProvider[iterationCount].imped as Complex;
+				var point:GraphicPoint = sc_scale.valueToLayout(imped);
+				return point.x;
+			}
+
+			//returns the y1 value for a given iteration of the connecting lines
+			private function lineY1Modifier(iterationCount:int, value:Number):Number
+			{
+				if(iterationCount == 0)
+					return 0;
+
+				var imped:Complex = smithChartLineLayout.dataProvider[iterationCount].imped as Complex;
+				var point:GraphicPoint = sc_scale.valueToLayout(imped);
+				return point.y;
+			}
+			
+			//returns the stroke for a given line
+			private function lineStrokeModifier(iterationCount:int, value:SolidStroke):SolidStroke
+			{
+				value.color = lineColors[impedanceLayout.currentIndex];
+				return value;
+			}
+			
+			private function getDataTipLabel(value:Object):String
+			{
+				if(value.data.imped._imag > 0)
+					return nf2.format(value.data.freq)+" mHz<br/>" + nf1.format(value.data.imped._real) + " + j " + nf2.format(value.data.imped._imag);
+				else
+					return nf2.format(value.data.freq)+" mHz<br/>" + nf1.format(value.data.imped._real) + " - j " + nf2.format(-value.data.imped._imag);
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:NumberFormatter id="nf1"
+						precision="2"
+						useNegativeSign="true"
+						useThousandsSeparator="false"
+						rounding="nearest"/>
+	<mx:NumberFormatter id="nf2"
+						precision="3"
+						useNegativeSign="true"
+						useThousandsSeparator="false"
+						rounding="nearest"/>
+							
+	<backgroundGeometries>
+		<!-- background gradient -->
+		<degrafa:Circle centerX="{sc_scale.center}" centerY="{sc_scale.center}" radius="{sc_scale.chartRadius}">
+			<degrafa:fill>
+				<degrafa:RadialGradientFill id="gradientFill" angle="0" focalPointRatio="1">
+					<degrafa:GradientStop alpha=".25" color="#ff0000" ratio="0"/>
+					<degrafa:GradientStop alpha=".25" color="#ffff00" ratio=".25"/>
+					<degrafa:GradientStop alpha=".25" color="#00ff00" ratio=".5"/>
+					<degrafa:GradientStop alpha=".25" color="#00ffff" ratio=".85"/>
+					<degrafa:GradientStop alpha=".25" color="#0000ff" ratio="1"/>
+				</degrafa:RadialGradientFill>
+			</degrafa:fill>
+		</degrafa:Circle>
+
+		<!-- outer circles -->
+		<degrafa:CircleRepeater centerX="{sc_scale.center}"
+								  centerY="{sc_scale.center}"
+								  count="3"
+								  offsetRadius="{sc_scale.chartRadius / 27.25}"
+								  radius="{sc_scale.chartRadius}"
+								  stroke="{majorStroke}"/>
+		<degrafa:CircleRepeater centerX="{sc_scale.center}"
+								  centerY="{sc_scale.center}"
+								  count="2"
+								  offsetRadius="{sc_scale.chartRadius / 27.25}"
+								  radius="{sc_scale.chartRadius * 1.02}"
+								  stroke="{minorStroke}"/>
+								  
+		<degrafa:HorizontalLine stroke="{majorStroke}"
+								x="{sc_scale.center - sc_scale.chartRadius}"
+								x1="{sc_scale.center + sc_scale.chartRadius}"
+								y="{sc_scale.center}"/>
+
+		<axis:SmithChartResistanceAxis id="sc_res_axis" scale="{sc_scale}" width="{this.width}" height="{this.height}"/>
+		<axis:SmithChartIndReactanceAxis id="sc_ind_rea_axis" scale="{sc_scale}" width="{this.width}" height="{this.height}"/>
+		<axis:SmithChartCapReactanceAxis id="sc_cap_rea_axis" scale="{sc_scale}" width="{this.width}" height="{this.height}"/>
+	</backgroundGeometries>
+
+	<layouts>
+		<!-- impedanceLayout iterates on each complete set of impedances -->
+		<axiis:BaseLayout id="impedanceLayout"
+			dataProvider="{dataProvider}"
+			showDataTips="false"
+			width="{this.width}"
+			height="{this.height}">
+			
+			<axiis:layouts>
+				
+				<!-- smithChartLineLayout iterates on each impedance data point and draws connecting lines -->
+				<axiis:BaseLayout id="smithChartLineLayout"
+					dataProvider="{impedanceLayout.currentDatum}"
+					inheritParentBounds="false"
+					showDataTips="false"
+					width="{this.width}"
+					height="{this.width}">
+					
+					<axiis:referenceRepeater>
+						<axiis:GeometryRepeater>
+							<axiis:geometry>
+								<degrafa:Line>
+									<degrafa:stroke>
+										<degrafa:SolidStroke color="#000000" alpha="0.5" weight="{this.width * 0.0025}"/>
+									</degrafa:stroke>
+								</degrafa:Line>
+							</axiis:geometry>
+							<axiis:modifiers>
+								<axiis:PropertyModifier property="x" modifier="{lineXModifier}" modifierOperator="none"/>
+								<axiis:PropertyModifier property="y" modifier="{lineYModifier}" modifierOperator="none"/>
+								<axiis:PropertyModifier property="x1" modifier="{lineX1Modifier}" modifierOperator="none"/>
+								<axiis:PropertyModifier property="y1" modifier="{lineY1Modifier}" modifierOperator="none"/>
+								<axiis:PropertyModifier property="stroke" modifier="{lineStrokeModifier}" modifierOperator="none"/>
+							</axiis:modifiers>
+						</axiis:GeometryRepeater>
+					</axiis:referenceRepeater>
+					<axiis:drawingGeometries>
+						<degrafa:Line x="{Line(smithChartLineLayout.currentReference).x}"
+									  y="{Line(smithChartLineLayout.currentReference).y}"
+									  x1="{Line(smithChartLineLayout.currentReference).x1}"
+									  y1="{Line(smithChartLineLayout.currentReference).y1}"
+									  stroke="{Line(smithChartLineLayout.currentReference).stroke}"/>
+					</axiis:drawingGeometries>
+				</axiis:BaseLayout>
+
+				<!-- smithChartLayout iterates on each impedance data point -->
+				<axiis:BaseLayout id="smithChartLayout"
+					dataProvider="{impedanceLayout.currentDatum}"
+					inheritParentBounds="false"
+					dataTipLabelFunction="{getDataTipLabel}"
+					dataTipManager="{freeDataTipManager}"
+					width="{this.width}"
+					height="{this.width}">
+					
+					<axiis:referenceRepeater>
+						<axiis:GeometryRepeater id="impedDataPointRepeater">
+							<axiis:geometry>
+								<degrafa:Circle>
+									<degrafa:fill>
+										<degrafa:LinearGradientFill/>
+									</degrafa:fill>
+								</degrafa:Circle>
+							</axiis:geometry>
+							<axiis:modifiers>
+								<axiis:PropertyModifier property="centerX" modifier="{centerXModifier}" modifierOperator="none"/>
+								<axiis:PropertyModifier property="centerY" modifier="{centerYModifier}" modifierOperator="none"/>
+								<axiis:PropertyModifier property="fill"  modifier="{fillModifier}" modifierOperator="none"/>
+							</axiis:modifiers>
+						</axiis:GeometryRepeater>
+					</axiis:referenceRepeater>
+					<axiis:drawingGeometries>
+						<degrafa:Circle 
+							centerX="{Circle(smithChartLayout.currentReference).centerX}"
+							centerY="{Circle(smithChartLayout.currentReference).centerY}"
+							radius="{this.width * 0.005}"
+							fill="{Circle(smithChartLayout.currentReference).fill}"/>
+				        <degrafa:Ellipse width="{0.0075 * this.width}" height="{this.width * 0.005}" x="{Circle(smithChartLayout.currentReference).centerX - 0.00375 * this.width/this.scaleX}" y="{Circle(smithChartLayout.currentReference).centerY - 0.004375 * this.width/this.scaleY}">
+				        	<degrafa:fill>
+								<degrafa:LinearGradientFill angle="90" >
+									<degrafa:GradientStop ratio="0" alpha="0.5" color="#FFFFFF"/>
+									<degrafa:GradientStop ratio="1" alpha="0.05" color="#FFFFFF"/>
+								</degrafa:LinearGradientFill>
+				        	</degrafa:fill>
+				        </degrafa:Ellipse>
+					</axiis:drawingGeometries>
+					
+				</axiis:BaseLayout>
+			</axiis:layouts>
+		</axiis:BaseLayout>
+	</layouts>
+			
+</DataCanvas>

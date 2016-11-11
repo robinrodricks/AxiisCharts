@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:axiis="http://www.axiis.org/2009"
+	layout="absolute"
+	applicationComplete="start()"
+	xmlns:Examples="Examples.*"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:charts="org.axiis.extras.charts.*" viewSourceURL="srcview/index.html">
+
+	<mx:Script>
+		<![CDATA[
+			import org.axiis.data.DataSet;
+
+			private function start():void
+			{
+				var ds:DataSet = new DataSet();
+				ds.processXmlString(xmlData);
+
+				waterfallChart.dataProvider = ds.data.object.months.month;
+				waterfallChart.invalidateDisplayList();
+			}
+		]]>
+	</mx:Script>
+
+	<mx:XML id="xmlData">
+		<months>
+			<month name="Jan" count="100"/>
+			<month name="Feb" count="200"/>
+			<month name="Mar" count="250"/>
+			<month name="Apr" count="150"/>
+			<month name="May" count="125"/>
+			<month name="Jun" count="150"/>
+			<month name="Jul" count="175"/>
+			<month name="Aug" count="260"/>
+			<month name="Sep" count="300"/>
+			<month name="Oct" count="250"/>
+			<month name="Nov" count="200"/>
+			<month name="Dec" count="200"/>
+		</months>
+	</mx:XML>
+
+	<mx:Style source="styles/Axiis_Examples.css"/>
+
+	<Examples:ExampleBackground width="100%" height="100%" title="Waterfall Chart" subTitle="Custom Visualization"/>
+
+	<charts:WaterfallChart id="waterfallChart"
+		width="90%"
+		top="130"
+		bottom="100"
+		horizontalCenter="0"
+		labelField="name"
+		dataField="count">
+		<charts:initialFill>
+			<degrafa:LinearGradientFill angle="180">
+				<degrafa:GradientStop color="0x4477FF"/>
+				<degrafa:GradientStop color="0x333388"/>
+			</degrafa:LinearGradientFill>
+		</charts:initialFill>
+		<charts:plusFill>
+			<degrafa:LinearGradientFill angle="180">
+				<degrafa:GradientStop color="0x44cc44" alpha=".9"/>
+				<degrafa:GradientStop color="0x338833"/>
+			</degrafa:LinearGradientFill>
+		</charts:plusFill>
+		<charts:minusFill>
+			<degrafa:LinearGradientFill angle="180">
+				<degrafa:GradientStop color="0xFF4444" alpha=".9"/>
+				<degrafa:GradientStop color="0x883333"/>
+			</degrafa:LinearGradientFill>
+		</charts:minusFill>
+		<charts:finalFill>
+			<degrafa:LinearGradientFill angle="180">
+				<degrafa:GradientStop color="0xFF44FF" alpha=".9"/>
+				<degrafa:GradientStop color="0x883388"/>
+			</degrafa:LinearGradientFill>
+		</charts:finalFill>
+	</charts:WaterfallChart>
+
+</mx:Application>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:charts="org.axiis.charts.*"
+	xmlns="http://www.degrafa.com/2007"
+	layout="absolute"
+	backgroundGradientColors="[0xDDDDDD,0xF5F5F5]"
+	xmlns:axiis="http://www.axiis.org/2009"
+	xmlns:series="org.axiis.charts.series.*"
+	xmlns:groupings="org.axiis.charts.groupings.*"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:states="org.axiis.states.*"
+	xmlns:paint="org.axiis.paint.*"
+	xmlns:Examples="Examples.*"
+	xmlns:axis="org.axiis.charts.axis.*"
+	xmlns:labels="org.axiis.charts.labels.*"
+	xmlns:geometry="com.degrafa.geometry.*">
+
+	<mx:Style source="styles/Axiis_Examples.css"/>
+
+	<Examples:ExampleBackground width="100%" height="100%" title="Animated Transitions" subTitle="Bubble to Column"/>
+
+	<mx:Parallel id="Morph1">
+
+		<mx:Parallel duration="1000" effectStart="mysuperShape.m=4;" target="{mysuperShape}">
+
+			<mx:AnimateProperty property="height" fromValue="150" toValue="300"/>
+
+			<mx:AnimateProperty property="width" fromValue="150" toValue="50"/>
+
+			<mx:AnimateProperty property="x" fromValue="100" toValue="0"/>
+
+			<mx:AnimateProperty property="y" fromValue="100" toValue="300"/>
+
+			<mx:AnimateProperty property="n1" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n2" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n3" fromValue="0.20" toValue="30"/>
+
+		</mx:Parallel>
+
+
+
+		<mx:Parallel startDelay="100" duration="1000" effectStart="mysuperShape1.m=4;" target="{mysuperShape1}">
+
+			<mx:AnimateProperty property="height" fromValue="125" toValue="200"/>
+
+			<mx:AnimateProperty property="width" fromValue="125" toValue="50"/>
+
+			<mx:AnimateProperty property="x" fromValue="300" toValue="75"/>
+
+			<mx:AnimateProperty property="y" fromValue="200" toValue="400"/>
+
+			<mx:AnimateProperty property="n1" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n2" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n3" fromValue="0.20" toValue="30"/>
+
+		</mx:Parallel>
+
+
+
+		<mx:Parallel startDelay="200" duration="1000" effectStart="mysuperShape2.m=4;" target="{mysuperShape2}">
+
+			<mx:AnimateProperty property="height" fromValue="75" toValue="100"/>
+
+			<mx:AnimateProperty property="width" fromValue="75" toValue="50"/>
+
+			<mx:AnimateProperty property="x" fromValue="400" toValue="150"/>
+
+			<mx:AnimateProperty property="y" fromValue="100" toValue="500"/>
+
+			<mx:AnimateProperty property="n1" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n2" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n3" fromValue="0.20" toValue="30"/>
+
+		</mx:Parallel>
+
+
+
+
+
+		<mx:Parallel startDelay="200" duration="1000" effectStart="mysuperShape3.m=4;" target="{mysuperShape3}">
+
+			<mx:AnimateProperty property="height" fromValue="50" toValue="50"/>
+
+			<mx:AnimateProperty property="width" fromValue="50" toValue="50"/>
+
+			<mx:AnimateProperty property="x" fromValue="450" toValue="225"/>
+
+			<mx:AnimateProperty property="y" fromValue="300" toValue="550"/>
+
+			<mx:AnimateProperty property="n1" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n2" fromValue="200" toValue="30"/>
+
+			<mx:AnimateProperty property="n3" fromValue="0.20" toValue="30"/>
+
+		</mx:Parallel>
+
+
+
+	</mx:Parallel>
+
+
+
+
+
+
+
+
+
+	<degrafa:GeometryComposition graphicsTarget="{[target1]}">
+
+
+
+		<geometry:SuperShape2D id="mysuperShape"
+			width="150"
+			height="150"
+			x="100"
+			y="100"
+			m="0"
+			n1="200"
+			n2="200"
+			n3="0.20"
+			detail="200"
+			range="2">
+
+
+
+			<geometry:fill>
+
+				<LinearGradientFill>
+
+					<GradientStop color="#7CCD00"/>
+
+					<GradientStop color="#5C9900"/>
+
+				</LinearGradientFill>
+
+			</geometry:fill>
+
+
+
+			<geometry:filters>
+
+				<mx:DropShadowFilter alpha=".25"/>
+
+			</geometry:filters>
+
+
+
+		</geometry:SuperShape2D>
+
+
+
+		<geometry:SuperShape2D id="mysuperShape1"
+			width="125"
+			height="125"
+			x="300"
+			y="200"
+			m="0"
+			n1="200"
+			n2="200"
+			n3="0.20"
+			detail="200"
+			range="2">
+
+
+
+			<geometry:fill>
+
+				<LinearGradientFill>
+
+					<GradientStop color="#FFAD6B"/>
+
+					<GradientStop color="#FD821D"/>
+
+				</LinearGradientFill>
+
+			</geometry:fill>
+
+
+
+
+
+			<geometry:filters>
+
+				<mx:DropShadowFilter alpha=".25"/>
+
+			</geometry:filters>
+
+		</geometry:SuperShape2D>
+
+
+
+		<geometry:SuperShape2D id="mysuperShape2"
+			width="75"
+			height="75"
+			x="400"
+			y="100"
+			m="0"
+			n1="200"
+			n2="200"
+			n3="0.20"
+			detail="200"
+			range="2">
+
+
+
+			<geometry:fill>
+
+				<LinearGradientFill>
+
+					<GradientStop color="#72B1FF"/>
+
+					<GradientStop color="#076AFF"/>
+
+				</LinearGradientFill>
+
+			</geometry:fill>
+
+
+
+
+
+			<geometry:filters>
+
+				<mx:DropShadowFilter alpha=".25"/>
+
+			</geometry:filters>
+
+		</geometry:SuperShape2D>
+
+
+
+		<geometry:SuperShape2D id="mysuperShape3"
+			width="50"
+			height="50"
+			x="450"
+			y="300"
+			m="0"
+			n1="200"
+			n2="200"
+			n3="0.20"
+			detail="200"
+			range="2">
+
+
+
+			<geometry:fill>
+
+				<LinearGradientFill>
+
+					<GradientStop color="#FF4545"/>
+
+					<GradientStop color="#D90000"/>
+
+				</LinearGradientFill>
+
+			</geometry:fill>
+
+
+
+
+
+			<geometry:filters>
+
+				<mx:DropShadowFilter alpha=".25"/>
+
+			</geometry:filters>
+
+		</geometry:SuperShape2D>
+
+
+
+	</degrafa:GeometryComposition>
+
+	<axiis:LinearScale minLayout="0"
+		maxLayout="600"
+		id="vScale"
+		minValue="0"
+		maxValue="100"/>
+	<axiis:DataCanvas width="600" height="600" verticalCenter="0" horizontalCenter="0">
+		<axiis:backgroundGeometries>
+			<axiis:VAxis verticalScale="{vScale}" width="600" height="600"/>
+		</axiis:backgroundGeometries>
+
+	</axiis:DataCanvas>
+
+	<mx:Canvas id="target1"
+		width="600"
+		height="600"
+		verticalCenter="0"
+		horizontalCenter="10"
+		borderStyle="solid"
+		borderThickness="0"
+		click="{Morph1.play();}"/>
+
+
+
+
+
+</mx:Application>

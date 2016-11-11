@@ -1,0 +1,506 @@
+<data>
+  <month value="August 2009">
+    <browser name="IE7" share="0.151" month="August 2009"/>
+    <browser name="IE6" share="0.136" month="August 2009"/>
+    <browser name="IE8" share="0.106" month="August 2009"/>
+    <browser name="Firefox" share="0.474" month="August 2009"/>
+    <browser name="Chrome" share="0.07" month="August 2009"/>
+    <browser name="Safari" share="0.033" month="August 2009"/>
+    <browser name="Opera" share="0.021" month="August 2009"/>
+  </month>
+  <month value="July 2009">
+    <browser name="IE7" share="0.159" month="July 2009"/>
+    <browser name="IE6" share="0.14400000000000002" month="July 2009"/>
+    <browser name="IE8" share="0.091" month="July 2009"/>
+    <browser name="Firefox" share="0.479" month="July 2009"/>
+    <browser name="Chrome" share="0.065" month="July 2009"/>
+    <browser name="Safari" share="0.033" month="July 2009"/>
+    <browser name="Opera" share="0.021" month="July 2009"/>
+  </month>
+  <month value="June 2009">
+    <browser name="IE7" share="0.187" month="June 2009"/>
+    <browser name="IE6" share="0.149" month="June 2009"/>
+    <browser name="IE8" share="0.071" month="June 2009"/>
+    <browser name="Firefox" share="0.473" month="June 2009"/>
+    <browser name="Chrome" share="0.06" month="June 2009"/>
+    <browser name="Safari" share="0.031" month="June 2009"/>
+    <browser name="Opera" share="0.021" month="June 2009"/>
+  </month>
+  <month value="May 2009">
+    <browser name="IE7" share="0.213" month="May 2009"/>
+    <browser name="IE6" share="0.145" month="May 2009"/>
+    <browser name="IE8" share="0.052000000000000005" month="May 2009"/>
+    <browser name="Firefox" share="0.47700000000000004" month="May 2009"/>
+    <browser name="Chrome" share="0.055" month="May 2009"/>
+    <browser name="Safari" share="0.03" month="May 2009"/>
+    <browser name="Opera" share="0.022000000000000002" month="May 2009"/>
+  </month>
+  <month value="April 2009">
+    <browser name="IE7" share="0.23199999999999998" month="April 2009"/>
+    <browser name="IE6" share="0.154" month="April 2009"/>
+    <browser name="IE8" share="0.035" month="April 2009"/>
+    <browser name="Firefox" share="0.47100000000000003" month="April 2009"/>
+    <browser name="Chrome" share="0.049" month="April 2009"/>
+    <browser name="Safari" share="0.03" month="April 2009"/>
+    <browser name="Opera" share="0.022000000000000002" month="April 2009"/>
+  </month>
+  <month value="March 2009">
+    <browser name="IE7" share="0.249" month="March 2009"/>
+    <browser name="IE6" share="0.17" month="March 2009"/>
+    <browser name="IE8" share="0.013999999999999999" month="March 2009"/>
+    <browser name="Firefox" share="0.465" month="March 2009"/>
+    <browser name="Chrome" share="0.042" month="March 2009"/>
+    <browser name="Safari" share="0.031" month="March 2009"/>
+    <browser name="Opera" share="0.023" month="March 2009"/>
+  </month>
+  <month value="February 2009">
+    <browser name="IE7" share="0.254" month="February 2009"/>
+    <browser name="IE6" share="0.174" month="February 2009"/>
+    <browser name="IE8" share="0.008" month="February 2009"/>
+    <browser name="Firefox" share="0.46399999999999997" month="February 2009"/>
+    <browser name="Chrome" share="0.04" month="February 2009"/>
+    <browser name="Safari" share="0.03" month="February 2009"/>
+    <browser name="Opera" share="0.022000000000000002" month="February 2009"/>
+  </month>
+  <month value="January 2009">
+    <browser name="IE7" share="0.257" month="January 2009"/>
+    <browser name="IE6" share="0.185" month="January 2009"/>
+    <browser name="IE8" share="0.006" month="January 2009"/>
+    <browser name="Firefox" share="0.455" month="January 2009"/>
+    <browser name="Chrome" share="0.039" month="January 2009"/>
+    <browser name="Safari" share="0.03" month="January 2009"/>
+    <browser name="Opera" share="0.023" month="January 2009"/>
+  </month>
+  <month value="December 2008">
+    <browser name="IE7" share="0.261" month="December 2008"/>
+    <browser name="IE6" share="0.196" month="December 2008"/>
+    <browser name="IE5" share="0" month="December 2008"/>
+    <browser name="Firefox" share="0.444" month="December 2008"/>
+    <browser name="Chrome" share="0.036000000000000004" month="December 2008"/>
+    <browser name="Safari" share="0.027000000000000003" month="December 2008"/>
+    <browser name="Opera" share="0.024" month="December 2008"/>
+  </month>
+  <month value="November 2008">
+    <browser name="IE7" share="0.266" month="November 2008"/>
+    <browser name="IE6" share="0.2" month="November 2008"/>
+    <browser name="IE5" share="0" month="November 2008"/>
+    <browser name="Firefox" share="0.442" month="November 2008"/>
+    <browser name="Chrome" share="0.031" month="November 2008"/>
+    <browser name="Safari" share="0.027000000000000003" month="November 2008"/>
+    <browser name="Opera" share="0.023" month="November 2008"/>
+  </month>
+  <month value="October 2008">
+    <browser name="IE7" share="0.26899999999999996" month="October 2008"/>
+    <browser name="IE6" share="0.20199999999999999" month="October 2008"/>
+    <browser name="IE5" share="0" month="October 2008"/>
+    <browser name="Firefox" share="0.44" month="October 2008"/>
+    <browser name="Chrome" share="0.03" month="October 2008"/>
+    <browser name="Safari" share="0.027999999999999997" month="October 2008"/>
+    <browser name="Opera" share="0.022000000000000002" month="October 2008"/>
+  </month>
+  <month value="September 2008">
+    <browser name="IE7" share="0.263" month="September 2008"/>
+    <browser name="IE6" share="0.223" month="September 2008"/>
+    <browser name="IE5" share="0" month="September 2008"/>
+    <browser name="Firefox" share="0.426" month="September 2008"/>
+    <browser name="Chrome" share="0.031" month="September 2008"/>
+    <browser name="Safari" share="0.027000000000000003" month="September 2008"/>
+    <browser name="Opera" share="0.02" month="September 2008"/>
+  </month>
+  <month value="August 2008">
+    <browser name="IE7" share="0.26" month="August 2008"/>
+    <browser name="IE6" share="0.245" month="August 2008"/>
+    <browser name="IE5" share="0" month="August 2008"/>
+    <browser name="Firefox" share="0.43700000000000006" month="August 2008"/>
+    <browser name="Chrome" share="0" month="August 2008"/>
+    <browser name="Safari" share="0.026000000000000002" month="August 2008"/>
+    <browser name="Opera" share="0.021" month="August 2008"/>
+  </month>
+  <month value="July 2008">
+    <browser name="IE7" share="0.264" month="July 2008"/>
+    <browser name="IE6" share="0.253" month="July 2008"/>
+    <browser name="IE5" share="0" month="July 2008"/>
+    <browser name="Firefox" share="0.426" month="July 2008"/>
+    <browser name="Chrome" share="0" month="July 2008"/>
+    <browser name="Safari" share="0.025" month="July 2008"/>
+    <browser name="Opera" share="0.019" month="July 2008"/>
+  </month>
+  <month value="June 2008">
+    <browser name="IE7" share="0.27" month="June 2008"/>
+    <browser name="IE6" share="0.265" month="June 2008"/>
+    <browser name="IE5" share="0.005" month="June 2008"/>
+    <browser name="Firefox" share="0.41" month="June 2008"/>
+    <browser name="Chrome" share="0" month="June 2008"/>
+    <browser name="Safari" share="0.026000000000000002" month="June 2008"/>
+    <browser name="Opera" share="0.017" month="June 2008"/>
+  </month>
+  <month value="May 2008">
+    <browser name="IE7" share="0.265" month="May 2008"/>
+    <browser name="IE6" share="0.273" month="May 2008"/>
+    <browser name="IE5" share="0.006999999999999999" month="May 2008"/>
+    <browser name="Firefox" share="0.39799999999999996" month="May 2008"/>
+    <browser name="Chrome" share="0" month="May 2008"/>
+    <browser name="Safari" share="0.024" month="May 2008"/>
+    <browser name="Opera" share="0.015" month="May 2008"/>
+  </month>
+  <month value="April 2008">
+    <browser name="IE7" share="0.249" month="April 2008"/>
+    <browser name="IE6" share="0.289" month="April 2008"/>
+    <browser name="IE5" share="0.01" month="April 2008"/>
+    <browser name="Firefox" share="0.391" month="April 2008"/>
+    <browser name="Chrome" share="0" month="April 2008"/>
+    <browser name="Safari" share="0.022000000000000002" month="April 2008"/>
+    <browser name="Opera" share="0.013999999999999999" month="April 2008"/>
+  </month>
+  <month value="March 2008">
+    <browser name="IE7" share="0.233" month="March 2008"/>
+    <browser name="IE6" share="0.295" month="March 2008"/>
+    <browser name="IE5" share="0.011000000000000001" month="March 2008"/>
+    <browser name="Firefox" share="0.37" month="March 2008"/>
+    <browser name="Chrome" share="0" month="March 2008"/>
+    <browser name="Safari" share="0.021" month="March 2008"/>
+    <browser name="Opera" share="0.013999999999999999" month="March 2008"/>
+  </month>
+  <month value="February 2008">
+    <browser name="IE7" share="0.22699999999999998" month="February 2008"/>
+    <browser name="IE6" share="0.307" month="February 2008"/>
+    <browser name="IE5" share="0.013000000000000001" month="February 2008"/>
+    <browser name="Firefox" share="0.365" month="February 2008"/>
+    <browser name="Chrome" share="0" month="February 2008"/>
+    <browser name="Safari" share="0.02" month="February 2008"/>
+    <browser name="Opera" share="0.013999999999999999" month="February 2008"/>
+  </month>
+  <month value="January 2008">
+    <browser name="IE7" share="0.212" month="January 2008"/>
+    <browser name="IE6" share="0.32" month="January 2008"/>
+    <browser name="IE5" share="0.015" month="January 2008"/>
+    <browser name="Firefox" share="0.364" month="January 2008"/>
+    <browser name="Chrome" share="0" month="January 2008"/>
+    <browser name="Safari" share="0.019" month="January 2008"/>
+    <browser name="Opera" share="0.013999999999999999" month="January 2008"/>
+  </month>
+  <month value="November 2007">
+    <browser name="IE7" share="0.20800000000000002" month="November 2007"/>
+    <browser name="IE6" share="0.336" month="November 2007"/>
+    <browser name="IE5" share="0.016" month="November 2007"/>
+    <browser name="Firefox" share="0.363" month="November 2007"/>
+    <browser name="Mozilla" share="0.012" month="November 2007"/>
+    <browser name="Safari" share="0.018000000000000002" month="November 2007"/>
+    <browser name="Opera" share="0.016" month="November 2007"/>
+  </month>
+  <month value="September 2007">
+    <browser name="IE7" share="0.20800000000000002" month="September 2007"/>
+    <browser name="IE6" share="0.349" month="September 2007"/>
+    <browser name="IE5" share="0.015" month="September 2007"/>
+    <browser name="Firefox" share="0.354" month="September 2007"/>
+    <browser name="Mozilla" share="0.012" month="September 2007"/>
+    <browser name="Safari" share="0.016" month="September 2007"/>
+    <browser name="Opera" share="0.015" month="September 2007"/>
+  </month>
+  <month value="July 2007">
+    <browser name="IE7" share="0.201" month="July 2007"/>
+    <browser name="IE6" share="0.369" month="July 2007"/>
+    <browser name="IE5" share="0.015" month="July 2007"/>
+    <browser name="Firefox" share="0.345" month="July 2007"/>
+    <browser name="Mozilla" share="0.013999999999999999" month="July 2007"/>
+    <browser name="Safari" share="0.015" month="July 2007"/>
+    <browser name="Opera" share="0.019" month="July 2007"/>
+  </month>
+  <month value="May 2007">
+    <browser name="IE7" share="0.192" month="May 2007"/>
+    <browser name="IE6" share="0.381" month="May 2007"/>
+    <browser name="IE5" share="0.016" month="May 2007"/>
+    <browser name="Firefox" share="0.337" month="May 2007"/>
+    <browser name="Mozilla" share="0.013000000000000001" month="May 2007"/>
+    <browser name="Safari" share="0.015" month="May 2007"/>
+    <browser name="Opera" share="0.017" month="May 2007"/>
+  </month>
+  <month value="March 2007">
+    <browser name="IE7" share="0.18" month="March 2007"/>
+    <browser name="IE6" share="0.387" month="March 2007"/>
+    <browser name="IE5" share="0.02" month="March 2007"/>
+    <browser name="Firefox" share="0.318" month="March 2007"/>
+    <browser name="Mozilla" share="0.013000000000000001" month="March 2007"/>
+    <browser name="Safari" share="0.016" month="March 2007"/>
+    <browser name="Opera" share="0.016" month="March 2007"/>
+  </month>
+  <month value="January 2007">
+    <browser name="IE7" share="0.133" month="January 2007"/>
+    <browser name="IE6" share="0.423" month="January 2007"/>
+    <browser name="IE5" share="0.03" month="January 2007"/>
+    <browser name="Firefox" share="0.31" month="January 2007"/>
+    <browser name="Mozilla" share="0.015" month="January 2007"/>
+    <browser name="Safari" share="0.017" month="January 2007"/>
+    <browser name="Opera" share="0.015" month="January 2007"/>
+  </month>
+  <month value="November 2006">
+    <browser name="IE7" share="0.071" month="November 2006"/>
+    <browser name="IE6" share="0.499" month="November 2006"/>
+    <browser name="IE5" share="0.036000000000000004" month="November 2006"/>
+    <browser name="Firefox" share="0.299" month="November 2006"/>
+    <browser name="Mozilla" share="0.025" month="November 2006"/>
+    <browser name="Netscape 7/8" share="0.002" month="November 2006"/>
+    <browser name="Opera" share="0.015" month="November 2006"/>
+  </month>
+  <month value="September 2006">
+    <browser name="IE7" share="0.025" month="September 2006"/>
+    <browser name="IE6" share="0.556" month="September 2006"/>
+    <browser name="IE5" share="0.04" month="September 2006"/>
+    <browser name="Firefox" share="0.273" month="September 2006"/>
+    <browser name="Mozilla" share="0.023" month="September 2006"/>
+    <browser name="Netscape 7/8" share="0.004" month="September 2006"/>
+    <browser name="Opera" share="0.016" month="September 2006"/>
+  </month>
+  <month value="July 2006">
+    <browser name="IE7" share="0.019" month="July 2006"/>
+    <browser name="IE6" share="0.563" month="July 2006"/>
+    <browser name="IE5" share="0.042" month="July 2006"/>
+    <browser name="Firefox" share="0.255" month="July 2006"/>
+    <browser name="Mozilla" share="0.023" month="July 2006"/>
+    <browser name="Netscape 7/8" share="0.004" month="July 2006"/>
+    <browser name="Opera" share="0.013999999999999999" month="July 2006"/>
+  </month>
+  <month value="May 2006">
+    <browser name="IE7" share="0.011000000000000001" month="May 2006"/>
+    <browser name="IE6" share="0.574" month="May 2006"/>
+    <browser name="IE5" share="0.045" month="May 2006"/>
+    <browser name="Firefox" share="0.257" month="May 2006"/>
+    <browser name="Mozilla" share="0.023" month="May 2006"/>
+    <browser name="Netscape 7/8" share="0.003" month="May 2006"/>
+    <browser name="Opera" share="0.015" month="May 2006"/>
+  </month>
+  <month value="March 2006">
+    <browser name="IE7" share="0.006" month="March 2006"/>
+    <browser name="IE6" share="0.588" month="March 2006"/>
+    <browser name="IE5" share="0.053" month="March 2006"/>
+    <browser name="Firefox" share="0.245" month="March 2006"/>
+    <browser name="Mozilla" share="0.024" month="March 2006"/>
+    <browser name="Netscape 7/8" share="0.005" month="March 2006"/>
+    <browser name="Opera" share="0.015" month="March 2006"/>
+  </month>
+  <month value="January 2006">
+    <browser name="IE7" share="0.002" month="January 2006"/>
+    <browser name="IE6" share="0.603" month="January 2006"/>
+    <browser name="IE5" share="0.055" month="January 2006"/>
+    <browser name="Firefox" share="0.25" month="January 2006"/>
+    <browser name="Mozilla" share="0.031" month="January 2006"/>
+    <browser name="Netscape 7/8" share="0.005" month="January 2006"/>
+    <browser name="Opera" share="0.016" month="January 2006"/>
+  </month>
+  <month value="November 2005">
+    <browser name="IE6" share="0.627" month="November 2005"/>
+    <browser name="IE5" share="0.062" month="November 2005"/>
+    <browser name="Firefox" share="0.23600000000000002" month="November 2005"/>
+    <browser name="Mozilla" share="0.027999999999999997" month="November 2005"/>
+    <browser name="Netscape 7" share="0.004" month="November 2005"/>
+    <browser name="Opera 8" share="0.013000000000000001" month="November 2005"/>
+    <browser name="Opera 7" share="0.002" month="November 2005"/>
+  </month>
+  <month value="September 2005">
+    <browser name="IE6" share="0.698" month="September 2005"/>
+    <browser name="IE5" share="0.057" month="September 2005"/>
+    <browser name="Firefox" share="0.18" month="September 2005"/>
+    <browser name="Mozilla" share="0.025" month="September 2005"/>
+    <browser name="Netscape 7" share="0.004" month="September 2005"/>
+    <browser name="Opera 8" share="0.01" month="September 2005"/>
+    <browser name="Opera 7" share="0.002" month="September 2005"/>
+  </month>
+  <month value="July 2005">
+    <browser name="IE6" share="0.679" month="July 2005"/>
+    <browser name="IE5" share="0.059000000000000004" month="July 2005"/>
+    <browser name="Firefox" share="0.198" month="July 2005"/>
+    <browser name="Mozilla" share="0.026000000000000002" month="July 2005"/>
+    <browser name="Netscape 7" share="0.005" month="July 2005"/>
+    <browser name="Opera 8" share="0.008" month="July 2005"/>
+    <browser name="Opera 7" share="0.004" month="July 2005"/>
+  </month>
+  <month value="May 2005">
+    <browser name="IE6" share="0.648" month="May 2005"/>
+    <browser name="IE5" share="0.068" month="May 2005"/>
+    <browser name="Firefox" share="0.21" month="May 2005"/>
+    <browser name="Mozilla" share="0.031" month="May 2005"/>
+    <browser name="Netscape 7" share="0.006999999999999999" month="May 2005"/>
+    <browser name="Opera 8" share="0.006999999999999999" month="May 2005"/>
+    <browser name="Opera 7" share="0.006" month="May 2005"/>
+  </month>
+  <month value="March 2005">
+    <browser name="IE6" share="0.636" month="March 2005"/>
+    <browser name="IE5" share="0.08900000000000001" month="March 2005"/>
+    <browser name="Firefox" share="0.18899999999999997" month="March 2005"/>
+    <browser name="Mozilla" share="0.033" month="March 2005"/>
+    <browser name="Netscape 7" share="0.01" month="March 2005"/>
+    <browser name="Opera 8" share="0.003" month="March 2005"/>
+    <browser name="Opera 7" share="0.016" month="March 2005"/>
+  </month>
+  <month value="January 2005">
+    <browser name="IE6" share="0.648" month="January 2005"/>
+    <browser name="IE5" share="0.09699999999999999" month="January 2005"/>
+    <browser name="Firefox" share="0.166" month="January 2005"/>
+    <browser name="Mozilla" share="0.034" month="January 2005"/>
+    <browser name="Netscape 7" share="0.011000000000000001" month="January 2005"/>
+    <browser name="Opera 8" share="0" month="January 2005"/>
+    <browser name="Opera 7" share="0.019" month="January 2005"/>
+  </month>
+  <month value="November 2004">
+    <browser name="IE6" share="0.66" month="November 2004"/>
+    <browser name="IE5" share="0.102" month="November 2004"/>
+    <browser name="Mozilla" share="0.165" month="November 2004"/>
+    <browser name="Netscape 3" share="0.002" month="November 2004"/>
+    <browser name="Netscape 7" share="0.012" month="November 2004"/>
+    <browser name="Netscape 4" share="0.003" month="November 2004"/>
+    <browser name="Opera 7" share="0.016" month="November 2004"/>
+  </month>
+  <month value="September 2004">
+    <browser name="IE6" share="0.6779999999999999" month="September 2004"/>
+    <browser name="IE5" share="0.11199999999999999" month="September 2004"/>
+    <browser name="Mozilla" share="0.13699999999999998" month="September 2004"/>
+    <browser name="Netscape 3" share="0.003" month="September 2004"/>
+    <browser name="Netscape 7" share="0.013999999999999999" month="September 2004"/>
+    <browser name="Netscape 4" share="0.003" month="September 2004"/>
+    <browser name="Opera 7" share="0.017" month="September 2004"/>
+  </month>
+  <month value="July 2004">
+    <browser name="IE6" share="0.672" month="July 2004"/>
+    <browser name="IE5" share="0.132" month="July 2004"/>
+    <browser name="Mozilla" share="0.126" month="July 2004"/>
+    <browser name="Netscape 3" share="0.004" month="July 2004"/>
+    <browser name="Netscape 7" share="0.013999999999999999" month="July 2004"/>
+    <browser name="Netscape 4" share="0.004" month="July 2004"/>
+    <browser name="Opera 7" share="0.016" month="July 2004"/>
+  </month>
+  <month value="May 2004">
+    <browser name="IE6" share="0.6809999999999999" month="May 2004"/>
+    <browser name="IE5" share="0.138" month="May 2004"/>
+    <browser name="Mozilla" share="0.095" month="May 2004"/>
+    <browser name="Netscape 3" share="0.006" month="May 2004"/>
+    <browser name="Netscape 7" share="0.013999999999999999" month="May 2004"/>
+    <browser name="Netscape 4" share="0.004" month="May 2004"/>
+    <browser name="Opera 7" share="0.016" month="May 2004"/>
+  </month>
+  <month value="March 2004">
+    <browser name="IE6" share="0.682" month="March 2004"/>
+    <browser name="IE5" share="0.146" month="March 2004"/>
+    <browser name="Mozilla" share="0.079" month="March 2004"/>
+    <browser name="Netscape 3" share="0.008" month="March 2004"/>
+    <browser name="Netscape 7" share="0.013999999999999999" month="March 2004"/>
+    <browser name="Netscape 4" share="0.006" month="March 2004"/>
+    <browser name="Opera 7" share="0.013999999999999999" month="March 2004"/>
+  </month>
+  <month value="January 2004">
+    <browser name="IE6" share="0.6890000000000001" month="January 2004"/>
+    <browser name="IE5" share="0.158" month="January 2004"/>
+    <browser name="Mozilla" share="0.055" month="January 2004"/>
+    <browser name="Netscape 3" share="0.004" month="January 2004"/>
+    <browser name="Netscape 7" share="0.015" month="January 2004"/>
+    <browser name="Netscape 4" share="0.005" month="January 2004"/>
+    <browser name="Opera 7" share="0.015" month="January 2004"/>
+  </month>
+  <month value="November 2003">
+    <browser name="IE6" share="0.7120000000000001" month="November 2003"/>
+    <browser name="IE5" share="0.13699999999999998" month="November 2003"/>
+    <browser name="Mozilla" share="0.07200000000000001" month="November 2003"/>
+    <browser name="Netscape 3" share="0.005" month="November 2003"/>
+    <browser name="Netscape 7" share="0.016" month="November 2003"/>
+    <browser name="Netscape 4" share="0.005" month="November 2003"/>
+    <browser name="Opera 7" share="0.019" month="November 2003"/>
+  </month>
+  <month value="September 2003">
+    <browser name="IE6" share="0.6970000000000001" month="September 2003"/>
+    <browser name="IE5" share="0.16899999999999998" month="September 2003"/>
+    <browser name="Mozilla" share="0.062" month="September 2003"/>
+    <browser name="Netscape 3" share="0.006" month="September 2003"/>
+    <browser name="Netscape 7" share="0.015" month="September 2003"/>
+    <browser name="Netscape 4" share="0.006" month="September 2003"/>
+    <browser name="Opera 7" share="0.018000000000000002" month="September 2003"/>
+  </month>
+  <month value="July 2003">
+    <browser name="IE6" share="0.669" month="July 2003"/>
+    <browser name="IE5" share="0.203" month="July 2003"/>
+    <browser name="Mozilla" share="0.057" month="July 2003"/>
+    <browser name="Netscape 3" share="0.006" month="July 2003"/>
+    <browser name="Netscape 7" share="0.015" month="July 2003"/>
+    <browser name="Netscape 4" share="0.006" month="July 2003"/>
+    <browser name="Opera 7" share="0.017" month="July 2003"/>
+  </month>
+  <month value="May 2003">
+    <browser name="IE6" share="0.65" month="May 2003"/>
+    <browser name="IE5" share="0.22699999999999998" month="May 2003"/>
+    <browser name="Mozilla" share="0.046" month="May 2003"/>
+    <browser name="Netscape 3" share="0.01" month="May 2003"/>
+    <browser name="Netscape 7" share="0.013999999999999999" month="May 2003"/>
+    <browser name="Netscape 4" share="0.009000000000000001" month="May 2003"/>
+    <browser name="Opera 7" share="0.013999999999999999" month="May 2003"/>
+  </month>
+  <month value="March 2003">
+    <browser name="IE6" share="0.634" month="March 2003"/>
+    <browser name="IE5" share="0.24600000000000002" month="March 2003"/>
+    <browser name="Mozilla" share="0.042" month="March 2003"/>
+    <browser name="Netscape 3" share="0.009000000000000001" month="March 2003"/>
+    <browser name="Netscape 7" share="0.013999999999999999" month="March 2003"/>
+    <browser name="Netscape 4" share="0.011000000000000001" month="March 2003"/>
+    <browser name="Opera 7" share="0.012" month="March 2003"/>
+  </month>
+  <month value="January 2003">
+    <browser name="IE6" share="0.5529999999999999" month="January 2003"/>
+    <browser name="IE5" share="0.293" month="January 2003"/>
+    <browser name="Mozilla" share="0.04" month="January 2003"/>
+    <browser name="Netscape 3" share="0.012" month="January 2003"/>
+    <browser name="Netscape 7" share="0.011000000000000001" month="January 2003"/>
+    <browser name="Netscape 4" share="0.017" month="January 2003"/>
+    <browser name="Opera 7" share="0" month="January 2003"/>
+  </month>
+  <month value="November 2002">
+    <browser name="IE6" share="0.535" month="November 2002"/>
+    <browser name="IE5" share="0.299" month="November 2002"/>
+    <browser name="AOL" share="0.052000000000000005" month="November 2002"/>
+    <browser name="Netscape 3" share="0.011000000000000001" month="November 2002"/>
+    <browser name="Netscape 5" share="0.049" month="November 2002"/>
+    <browser name="Netscape 4" share="0.02" month="November 2002"/>
+    <browser name="IE4" share="0" month="November 2002"/>
+  </month>
+  <month value="September 2002">
+    <browser name="IE6" share="0.491" month="September 2002"/>
+    <browser name="IE5" share="0.344" month="September 2002"/>
+    <browser name="AOL" share="0.045" month="September 2002"/>
+    <browser name="Netscape 3" share="0.013000000000000001" month="September 2002"/>
+    <browser name="Netscape 5" share="0.045" month="September 2002"/>
+    <browser name="Netscape 4" share="0.022000000000000002" month="September 2002"/>
+    <browser name="IE4" share="0" month="September 2002"/>
+  </month>
+  <month value="July 2002">
+    <browser name="IE6" share="0.444" month="July 2002"/>
+    <browser name="IE5" share="0.401" month="July 2002"/>
+    <browser name="AOL" share="0.035" month="July 2002"/>
+    <browser name="Netscape 3" share="0.012" month="July 2002"/>
+    <browser name="Netscape 5" share="0.035" month="July 2002"/>
+    <browser name="Netscape 4" share="0.026000000000000002" month="July 2002"/>
+    <browser name="IE4" share="0.005" month="July 2002"/>
+  </month>
+  <month value="May 2002">
+    <browser name="IE6" share="0.40700000000000003" month="May 2002"/>
+    <browser name="IE5" share="0.46" month="May 2002"/>
+    <browser name="AOL" share="0.027999999999999997" month="May 2002"/>
+    <browser name="Netscape 3" share="0.012" month="May 2002"/>
+    <browser name="Netscape 5" share="0.027000000000000003" month="May 2002"/>
+    <browser name="Netscape 4" share="0.034" month="May 2002"/>
+    <browser name="IE4" share="0.006999999999999999" month="May 2002"/>
+  </month>
+  <month value="March 2002">
+    <browser name="IE6" share="0.36700000000000005" month="March 2002"/>
+    <browser name="IE5" share="0.494" month="March 2002"/>
+    <browser name="AOL" share="0.03" month="March 2002"/>
+    <browser name="Netscape 3" share="0.012" month="March 2002"/>
+    <browser name="Netscape 5" share="0.024" month="March 2002"/>
+    <browser name="Netscape 4" share="0.040999999999999995" month="March 2002"/>
+    <browser name="IE4" share="0.006999999999999999" month="March 2002"/>
+  </month>
+  <month value="January 2002">
+    <browser name="IE6" share="0.301" month="January 2002"/>
+    <browser name="IE5" share="0.557" month="January 2002"/>
+    <browser name="AOL" share="0.027999999999999997" month="January 2002"/>
+    <browser name="Netscape 3" share="0.013000000000000001" month="January 2002"/>
+    <browser name="Netscape 5" share="0.022000000000000002" month="January 2002"/>
+    <browser name="Netscape 4" share="0.044000000000000004" month="January 2002"/>
+    <browser name="IE4" share="0.01" month="January 2002"/>
+  </month>
+</data>

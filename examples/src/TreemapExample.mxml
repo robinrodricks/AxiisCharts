@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	layout="absolute"
+	xmlns:axiis="http://www.axiis.org/2009"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:extras="org.axiis.extras.layouts.*"
+	creationComplete="processData()" xmlns:Examples="Examples.*" viewSourceURL="srcview/index.html">
+
+	<mx:Style source="styles/Axiis_Examples.css"/>
+
+	<mx:Script>
+		<![CDATA[
+			import org.axiis.managers.FreeDataTipManager;
+			import mx.utils.ColorUtil;
+			import org.axiis.data.DataSet;
+
+			private function processData():void
+			{
+				var ds:DataSet = new DataSet();
+				
+				// Convert the XML data into Objects
+				ds.processXmlString(frameworkComboBox.selectedItem.data as String);
+				
+				// Give the data to the treemapLayout
+				treemapLayout.dataProvider = ds.data.object.clazzes.clazz;
+			}
+		]]>
+	</mx:Script>
+
+	<Examples:ExampleBackground subTitle="Custom Visualization"
+		title="Tree Map - Action Script Classes"
+		width="100%"
+		height="100%" /> 
+	
+	<!-- Scale for translating the percentPrivateMethods values between -1 and 1.
+		This is used for coloring the fills red or green and adjusting brightness. -->
+	<axiis:LinearScale id="colorScale"
+		dataProvider="{treemapLayout.dataProvider}"
+		dataField="percentPrivateMethods"
+		minLayout="-1"
+		maxLayout="1"/>
+	
+	<!-- Storage for the result from colorScale.valueToLayout -->
+	<axiis:NumericExpression id="colorScaleResult"
+		value="{colorScale.valueToLayout(treemapLayout.currentDatum.percentPrivateMethods)}"/>
+	
+	<!-- If the colorScaleResult is positive, we use red, otherwise we use green -->
+	<axiis:NumericExpression id="currentColor"
+		value="{colorScaleResult.value &gt; 0 ? 0x44FF33 : 0x3355FF}"/>
+	
+	<mx:VBox horizontalAlign="center"
+		top="70"
+		paddingLeft="30"
+		paddingRight="30"
+		paddingBottom="20"
+		width="100%"
+		height="100%">
+		
+		<!-- ComboBox for selecting different frameworks to visualize -->
+		<mx:ComboBox id="frameworkComboBox" labelField="name" change="processData()" enabled="{!treemapLayout.rendering}">
+			<mx:dataProvider>
+				<mx:Object name="Axiis">
+					<mx:data>
+						<mx:String source="data/framework stats/axiis.xml"/>
+					</mx:data>
+				</mx:Object>
+				<mx:Object name="Degrafa">
+					<mx:data>
+						<mx:String source="data/framework stats/degrafa.xml"/>
+					</mx:data>
+				</mx:Object>
+				<mx:Object name="Flex 3.3">
+					<mx:data>
+						<mx:String source="data/framework stats/flex3.3.xml"/>
+					</mx:data>
+				</mx:Object>
+				<mx:Object name="Data Visualization 3.1">
+					<mx:data>
+						<mx:String source="data/framework stats/datavisualization.3.1.xml"/>
+					</mx:data>
+				</mx:Object>
+			</mx:dataProvider>
+		</mx:ComboBox>
+	
+		<!-- The treemap -->
+		<axiis:DataCanvas id="dc" width="100%" height="100%">
+			<axiis:layouts>
+				<extras:SquarifiedTreemapLayout id="treemapLayout"
+					dataField="totalLines"
+					labelField="name"
+					width="{dc.width}"
+					height="{dc.height}"
+					dataTipManager="{new FreeDataTipManager()}">
+					<extras:drawingGeometries>
+					
+						<!-- The rectangle representing each item -->
+						<degrafa:RegularRectangle
+							x="{treemapLayout.currentReference.x}"
+							y="{treemapLayout.currentReference.y}"
+							width="{treemapLayout.currentReference.width}"
+							height="{treemapLayout.currentReference.height}">
+							<degrafa:fill>
+								<!-- Fill the rectangles red if they contain many private methods, green otherwise. -->
+								<degrafa:LinearGradientFill angle="45">
+									<degrafa:GradientStop id="stop1"
+										color="{ColorUtil.adjustBrightness(currentColor.value, 0xff - Math.abs(colorScaleResult.value * 0xbb))}"/>
+									<degrafa:GradientStop id="stop2"
+										color="{ColorUtil.adjustBrightness(currentColor.value, 0xff - Math.abs(colorScaleResult.value * 0x66))}"/>
+								</degrafa:LinearGradientFill>
+							</degrafa:fill>
+							<degrafa:stroke>
+								<degrafa:LinearGradientStroke angle="325">
+									<degrafa:GradientStop
+										color="{ColorUtil.adjustBrightness(currentColor.value, 0xff - Math.abs(colorScaleResult.value * 0xbb))}"/>
+									<degrafa:GradientStop
+										color="{ColorUtil.adjustBrightness(currentColor.value, 0xff - Math.abs(colorScaleResult.value * 0x66))}"/>
+								</degrafa:LinearGradientStroke>
+
+							</degrafa:stroke>
+						</degrafa:RegularRectangle>
+					
+						<!-- The text displaying the class name. Don't show it if the rectangle is too small. -->
+						<degrafa:RasterText text="{treemapLayout.currentDatum.name}" fontFamily="Myriad Pro"
+							x="{treemapLayout.currentReference.x}"
+							y="{treemapLayout.currentReference.y}"
+							width="{treemapLayout.currentReference.width}"
+							visible="{treemapLayout.currentReference.height &gt; 18}">
+							<degrafa:fill>
+								<degrafa:SolidFill id="textFill" color="0"/>
+							</degrafa:fill>
+						</degrafa:RasterText>
+					
+					</extras:drawingGeometries>
+				
+					<!-- The mouseOver state - Color the rectangle black and the text white. -->
+					<extras:states>	
+						<axiis:State enterStateEvent="mouseOver"
+							exitStateEvent="mouseOut"
+							targets="{[stop1,stop2,textFill]}"
+							properties="{['color','color','color']}"
+							values="{[0x000000,0x666666,0xffffff]}"/>
+					</extras:states>
+				
+				</extras:SquarifiedTreemapLayout>
+			</axiis:layouts>
+		
+			<axiis:filters>
+				<mx:DropShadowFilter distance="3" blurX="4" blurY="4" alpha=".4"/>
+			</axiis:filters>
+		
+		</axiis:DataCanvas>
+
+	</mx:VBox>
+		
+</mx:Application>

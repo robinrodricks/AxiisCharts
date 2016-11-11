@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	The Squarified Treemap Layout uses the layout algorithm described by 
+	Mark Bruls, Kees Huizing, and Jarke J. van Wijk (www.win.tue.nl/~vanwijk/stm.pdf)
+	to position and size its reference geometry (a RegularRectangle) such that
+	the rectangles it produces fill the width and height of the layout and have
+	nearly 1:1 width:height ratios. The individual areas of the rectangles produced
+	are determined by the value of the datum's dataField with respect to the sum of
+	those values over the entire dataProvider. For example, if the sum of the data
+	values is 100 and a given datum has a value of 10, the reference rectangle
+	created for that datum will be 10% of the total area of the	layout.
+-->
+<axiis:BaseLayout xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:axiis="http://www.axiis.org/2009"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	preRender="preRenderHandler(event)">
+
+	<mx:Script>
+		<![CDATA[
+			// The rectangles that will be used to represent the data in the treemap 
+			protected var rects:Array = [];
+
+			// The sum of the data items
+			protected var dataFieldTotal:Number = 0;
+
+			override public function set dataProvider(value:Object):void
+			{
+				super.dataProvider = value;
+				
+				// After the data is processed, sort it by the dataField.
+				if(dataField)
+					dataItems.sortOn(dataField,Array.DESCENDING | Array.NUMERIC);
+				else
+					dataItems.sort(Array.DESCENDING | Array.NUMERIC);
+				
+				// Total up the data
+				dataFieldTotal = 0;
+				for each (var datum:Object in dataItems)
+				{
+					dataFieldTotal += dataField == null ? datum : datum[dataField];
+				}
+			}
+
+			protected function preRenderHandler(event:Event):void
+			{
+				// Compute an appropriate area for each rectangle based on the available space
+				// and the value for each datum. 
+				var availableArea:Number = width * height;
+				var areas:Array = [];
+				for each (var datum:Object in dataItems)
+				{
+					var value:Number = Number(dataField == null ? datum : datum[dataField]);
+					areas.push(availableArea * (Math.abs(value) / dataFieldTotal));
+				}
+
+				// Compute rectangles that will reflect the areas
+				var layoutRect:Rectangle = new Rectangle(0, 0, width, height);
+				rects = squarify(layoutRect, areas, [], computeShortestSide(layoutRect));
+			}
+
+			// Returns the lenght of the shortest side of rect 
+			protected function computeShortestSide(rect:Rectangle):Number
+			{
+				return Math.min(rect.width, rect.height);
+			}
+ 
+ 			// Recursively creates rectangles (that have areas from areaToAdd) that fit
+ 			// within layoutRect. The method will create a rectangle for the first area
+ 			// in areasToAdd along the side with length sideLength if adding that rectangle
+ 			// improves the worst aspect ratio of rectangles that have been already
+ 			// created (existingAreas). This method assumes that areasToAdd is sorted
+ 			// from largest to smallest.
+			protected function squarify(layoutRect:Rectangle, areasToAdd:Array, existingAreas:Array, sideLength:Number):Array
+			{
+				var toReturn:Array = [];
+				
+				// Default case. If we're on the last area, create the rectangle and return it.
+				if (areasToAdd.length == 1 && existingAreas.length == 0)
+				{
+					toReturn = layoutRow(layoutRect, [areasToAdd]);
+				}
+				else
+				{
+					// Grab the largest area from the array
+					var firstArea:Number = areasToAdd.shift();
+					
+					// The worst aspect ratio among existing rectangles.
+					var currWorstRatio:Number = computeWorstAspectRatio(existingAreas, sideLength);
+					
+					// The worst aspect ration when considering firstArea, too.
+					var newWorstAspectRatio:Number = computeWorstAspectRatio(existingAreas.concat(firstArea), sideLength);
+					
+					// If the worst aspect ratio is improved (i.e. reduced), attempt
+					// to add the next area. 
+					if (currWorstRatio >= newWorstAspectRatio)
+					{
+						toReturn = squarify(layoutRect, areasToAdd, existingAreas.concat(firstArea), sideLength);
+					}
+					
+					// If the new area made the aspect ratio worse, create rectangles for
+					// the existing areas and continue laying out the rest of the areas.
+					else
+					{
+						toReturn = layoutRow(layoutRect, existingAreas);
+						areasToAdd.unshift(firstArea);
+						toReturn = toReturn.concat(squarify(layoutRect, areasToAdd, [], computeShortestSide(layoutRect)));
+					}
+				}
+				return toReturn;
+			}
+
+			// Returns the worst aspect ratio created when laying out rectangles that
+			// have a side sideLength long and areas from the array of areas.
+			protected function computeWorstAspectRatio(areas:Array, sideLength:Number):Number
+			{
+				var maxArea:Number = 0;
+				var minArea:Number = Number.MAX_VALUE;
+				var totalArea:Number = 0;
+				for each (var area:Number in areas)
+				{
+					minArea = Math.min(minArea, area);
+					maxArea = Math.max(maxArea, area);
+					totalArea += area;
+				}
+				var sideLength2:Number = sideLength * sideLength;
+				var totalArea2:Number = totalArea * totalArea;
+				var maxAspectRatio:Number = Math.max((sideLength2 * maxArea) / totalArea2, totalArea2 / (sideLength2 * minArea));
+				return isNaN(maxAspectRatio) ? Number.MAX_VALUE : maxAspectRatio;
+			}
+
+			// Returns an array of rectangles with areas from the array placed inside layoutRect.
+			protected function layoutRow(layoutRect:Rectangle, areas:Array):Array
+			{
+				// We're going to lay the rectangles along the short side of the rectangle
+				// so the aspect ratio of the remaining part of the layoutRect will improve.
+				// We compute the how much space the rectangles will take up on the
+				// longest side and store that value as longestSidePortion.
+				var shortestSide:Number = computeShortestSide(layoutRect);
+				var totalAreaToLayout:Number = 0;
+				for each (var area:Number in areas)
+				{
+					totalAreaToLayout += area;
+				}
+				var longestSidePortion:Number = totalAreaToLayout / shortestSide;
+ 
+				var toReturn:Array = [];
+				var currX:Number = layoutRect.x;
+				var currY:Number = layoutRect.y;
+				// We've computed the locations of the rectangles. Now all we have
+				// to do is create them... 
+				for each (area in areas)
+				{
+					var shortestSidePortion:Number = area / longestSidePortion; 
+					if (shortestSide == layoutRect.width)
+					{
+						toReturn.push(new Rectangle(currX, currY, shortestSidePortion, longestSidePortion));
+						currX += shortestSidePortion;
+					}
+					else
+					{
+						toReturn.push(new Rectangle(currX, currY, longestSidePortion, shortestSidePortion));
+						currY += shortestSidePortion;
+					}
+				}
+				
+				// Adjust the position and size of the layoutRect based on the newly created rectangles
+				if (shortestSide == layoutRect.width)
+				{
+					layoutRect.height -= longestSidePortion;
+					layoutRect.y += longestSidePortion;
+				}
+				else
+				{
+					layoutRect.width -= longestSidePortion;
+					layoutRect.x += longestSidePortion;
+				}
+				return toReturn;
+			}
+		]]>
+	</mx:Script>
+
+	<axiis:referenceRepeater>
+		<axiis:GeometryRepeater>
+			<axiis:geometry>
+				<degrafa:RegularRectangle id="referenceRectangle" x="0" y="0" width="0" height="0"/>
+			</axiis:geometry>
+			<axiis:modifiers>
+				<!-- Modify the referenceRectangle with values for x, y, width, and height with values from the rects array -->
+				<axiis:PropertyModifier property="x" modifierOperator="none" modifier="{rects[currentIndex].x}"/>
+				<axiis:PropertyModifier property="y" modifierOperator="none" modifier="{rects[currentIndex].y}"/>
+				<axiis:PropertyModifier property="width" modifierOperator="none" modifier="{rects[currentIndex].width}"/>
+				<axiis:PropertyModifier property="height" modifierOperator="none" modifier="{rects[currentIndex].height}"/>
+			</axiis:modifiers>
+		</axiis:GeometryRepeater>
+	</axiis:referenceRepeater>
+</axiis:BaseLayout>

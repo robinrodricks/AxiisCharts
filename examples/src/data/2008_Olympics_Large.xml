@@ -1,0 +1,1049 @@
+
+		<country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+        <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    <country name="China">
+            <medal category="Gold" count="51"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="USA">
+            <medal category="Gold" count="36"/> 
+            <medal category="Silver" count="36"/>
+            <medal category="Bronze" count="38"/>
+        </country>
+        <country name="Russia"> 
+            <medal category="Gold" count="23"/> 
+            <medal category="Silver" count="28"/>
+            <medal category="Bronze" count="21"/>
+        </country>
+        <country name="Great Britian">
+            <medal category="Gold" count="19"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="13"/>
+        </country>
+        <country name="Germany">
+            <medal category="Gold" count="16"/> 
+            <medal category="Silver" count="15"/>
+            <medal category="Bronze" count="10"/>    
+        </country>
+        <country name="Australia">
+            <medal category="Gold" count="14"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+        <country name="South Korea">
+            <medal category="Gold" count="13"/> 
+            <medal category="Silver" count="8"/>
+        	<medal category="Bronze" count="10"/>
+        </country>
+        <country name="Japan">
+            <medal category="Gold" count="9"/> 
+            <medal category="Bronze" count="6"/>
+            <medal category="Silver" count="10"/>
+        </country>
+        <country name="Italy">
+            <medal category="Gold" count="8"/> 
+            <medal category="Silver" count="10"/>
+        	<medal category="Bronze" count="10"/>   
+        </country>
+        <country name="Ukraine">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="17"/>
+            <medal category="Bronze" count="15"/>
+        </country>
+         <country name="Netherlands">
+            <medal category="Gold" count="7"/> 
+            <medal category="Silver" count="4"/>
+            <medal category="Bronze" count="5"/>
+        </country>
+    
+    
+        

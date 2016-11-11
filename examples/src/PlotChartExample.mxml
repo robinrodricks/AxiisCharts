@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:charts="org.axiis.charts.*"
+	layout="absolute"
+	backgroundGradientColors="[0xDDDDDD,0xF5F5F5]"
+	creationComplete="start();"
+	xmlns:axiis="http://www.axiis.org/2009"
+	xmlns:series="org.axiis.charts.series.*"
+	xmlns:groupings="org.axiis.charts.groupings.*"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:states="org.axiis.states.*"
+	xmlns:paint="org.axiis.paint.*"
+	xmlns:Examples="Examples.*"
+	xmlns:axis="org.axiis.charts.axis.*"
+	xmlns:labels="org.axiis.charts.labels.*"
+	xmlns:geom="flash.geom.*"
+	xmlns:geometry="com.degrafa.geometry.*" viewSourceURL="srcview/index.html">
+
+	<mx:Style source="styles/Axiis_Examples.css"/>
+	<mx:Script>
+		<![CDATA[
+			import com.degrafa.paint.SolidFill;
+			import org.axiis.data.DataSet;
+
+			private var ds:DataSet = new DataSet();
+
+			public function start():void
+			{
+				ds.processXmlString(countryData);
+				//Aggregate the detailed data items
+				ds.aggregateData(ds.data.object, "country", ["total"]);
+				ds.aggregateData(ds.data.object, "country", ["competitors"]);
+				ds.aggregateData(ds.data.object, "country", ["events"]);
+				vScale.maxValue = ds.data.object.aggregates['country_total_max'];
+				hScale.maxValue = ds.data.object.aggregates['country_competitors_max'];
+				rScale.maxValue = ds.data.object.aggregates['country_events_max'];
+				dataProvider = ds.data.object.country;
+				dc.invalidateDisplayList();
+			}
+		]]>
+	</mx:Script>
+	<Examples:ExampleBackground width="{this.width}" height="{this.height}" title="Absolute Chart" subTitle="Bubble Plot"/>
+
+	<mx:String id="countryData" source="data/PlotData.xml"/>
+
+	<!--  GLOBAL VARIABLES -->
+	<mx:Object id="dataProvider"/>
+	<mx:String id="verticalField"/>
+	<mx:String id="dataField">medal</mx:String>
+	<mx:String id="labelField">name</mx:String>
+	<mx:String id="childDataField">count</mx:String>
+	<mx:String id="childLabelField">category</mx:String>
+	<mx:Number id="percentGap">.02</mx:Number>
+
+
+	<axiis:LogScale id="rScale"
+		base="2"
+		dataProvider="{dataProvider}"
+		minLayout="3"
+		maxLayout="{Math.min(plotGroup.height, plotGroup.width)*.1}"
+		minValue="1"/>
+	<axiis:LinearScale id="vScale"
+		dataProvider="{dataProvider}"
+		minValue="0"
+		minLayout="{rScale.maxLayout}"
+		maxLayout="{plotGroup.height-rScale.maxLayout}"/>
+	<axiis:LinearScale id="hScale"
+		dataProvider="{dataProvider}"
+		minValue="0"
+		minLayout="{rScale.maxLayout}"
+		maxLayout="{plotGroup.width-rScale.maxLayout}"/>
+
+
+	<axiis:DataCanvas top="100"
+		bottom="120"
+		width="{this.width*.8}"
+		id="dc"
+		verticalCenter="0"
+		horizontalCenter="0"
+		showDataTips="true">
+
+		<!-- Background -->
+		<axiis:backgroundGeometries>
+			<axis:VAxis id="verticalAxis"
+				verticalScale="{vScale}"
+				tickStroke="{axisStroke}"
+				width="{plotGroup.width+15}"
+				height="{plotGroup.height}"
+				showDataTips="false"
+				fontFamily="Myriad Pro"
+				fontColor="0"
+				fontSize="14"
+				tickGap="5"
+				showGridArea="false"
+				showGridLine="true"
+				gridStroke="{vGridStroke}">
+				<axis:gridFill>
+					<degrafa:SolidFill color="{hPalette.currentColor}"/>
+				</axis:gridFill>
+			</axis:VAxis>
+
+			<axis:HAxis id="horizontalAxis"
+				horizontalScale="{hScale}"
+				tickStroke="{axisStroke}"
+				width="{plotGroup.width}"
+				x="{plotGroup.x}"
+				height="{dc.height}"
+				showDataTips="false"
+				fontFamily="Myriad Pro"
+				fontColor="0"
+				fontSize="14"
+				tickGap="5"
+				showGridArea="false"
+				showGridLine="true"
+				gridStroke="{hGridStroke}">
+				<axis:gridFill>
+					<degrafa:SolidFill color="{hPalette.currentColor}"/>
+				</axis:gridFill>
+			</axis:HAxis>
+		</axiis:backgroundGeometries>
+
+		<!-- Layouts -->
+		<axiis:layouts>
+			<axiis:PlotGroup id="plotGroup"
+				dataProvider="{dataProvider}"
+				verticalScale="{vScale}"
+				horizontalScale="{hScale}"
+				radiusScale="{rScale}"
+				verticalField="total"
+				horizontalField="competitors"
+				radiusField="events"
+				plotFill="{plotFill}"
+				markerGeometry="{marker}"
+				height="{dc.height-15}"
+				width="{dc.width-15}"
+				showDataTips="false"
+				x="15">
+			</axiis:PlotGroup>
+		</axiis:layouts>
+	</axiis:DataCanvas>
+
+	<degrafa:SolidStroke color="0x222222" id="axisStroke" pixelHinting="true"/>
+
+	<degrafa:RegularRectangle width="8" height="8" left="0" id="marker">
+		<degrafa:geometry>
+			<degrafa:Line height="100%" x="{marker.width/2}" x1="{marker.width/2}" stroke="{markerStroke}"/>
+			<degrafa:Line width="100%" y="{marker.height/2}" y1="{marker.height/2}" stroke="{markerStroke}"/>
+		</degrafa:geometry>
+	</degrafa:RegularRectangle>
+
+	<degrafa:SolidStroke id="markerStroke"
+		color="{0xFFFFFF}"
+		weight="1"
+		alpha=".6"
+		caps="none"
+		pixelHinting="true"/>
+
+	<degrafa:RadialGradientFill id="plotFill">
+		<degrafa:GradientStop color="{pPalette.currentColor | 0x111111}" ratio="0" alpha=".7"/>
+		<degrafa:GradientStop color="{pPalette.currentColor}" ratio=".8" alpha=".8"/>
+		<degrafa:GradientStop color="{pPalette.currentColor &amp; -0x333333}" alpha=".9"/>
+	</degrafa:RadialGradientFill>
+
+	<degrafa:LinearGradientStroke id="hGridStroke" angle="90" weight="1" caps="none">
+		<degrafa:GradientStop color="0xFF0000" alpha=".3"/>
+		<degrafa:GradientStop color="0x0000FF" alpha=".3"/>
+	</degrafa:LinearGradientStroke>
+	<degrafa:LinearGradientStroke id="vGridStroke" angle="0" weight="1" caps="none">
+		<degrafa:GradientStop color="0xFF0000" alpha=".3"/>
+		<degrafa:GradientStop color="0x0000FF" alpha=".1"/>
+	</degrafa:LinearGradientStroke>
+
+	<axiis:LayoutAutoPalette layout="{plotGroup}" paletteColors="[0xFA0022,0xc8a104,0x2200FF]" id="pPalette"/>
+	<axiis:LayoutAutoPalette layout="{verticalAxis}" colorFrom="0xFF0000" colorTo="0x0000FF" id="vPalette"/>
+	<axiis:LayoutAutoPalette layout="{horizontalAxis}" colorFrom="0xFFFF00" colorTo="0xFF00FF" id="hPalette"/>
+
+</mx:Application>

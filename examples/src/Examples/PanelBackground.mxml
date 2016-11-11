@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<degrafa:Surface xmlns:degrafa="http://www.degrafa.com/2007" xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Script>
+		<![CDATA[
+			//Need this hack for some bug in Degrafa with surface and group
+			[Bindable]
+			public var cornerRadius:int = 0;
+
+			override public function set width(value:Number):void
+			{
+				super.width = value;
+				myGroup.width = myRect.width = value;
+			}
+
+			override public function set height(value:Number):void
+			{
+				super.height = value;
+				myGroup.height = myRect.height = value;
+			}
+		]]>
+	</mx:Script>
+	<degrafa:graphicsData>
+		<degrafa:GeometryGroup width="{this.width}" height="{this.height}" id="myGroup">
+			<degrafa:RegularRectangle width="100%" height="100%" id="myRect">
+				<degrafa:fill>
+					<degrafa:LinearGradientFill angle="90">
+						<degrafa:GradientStop color="#CCCCCC"/>
+						<degrafa:GradientStop color="#999999"/>
+					</degrafa:LinearGradientFill>
+				</degrafa:fill>
+				<degrafa:stroke>
+					<degrafa:SolidStroke color="0x444444"/>
+				</degrafa:stroke>
+			</degrafa:RegularRectangle>
+		</degrafa:GeometryGroup>
+	</degrafa:graphicsData>
+</degrafa:Surface>
+

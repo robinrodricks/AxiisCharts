@@ -1,0 +1,181 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../override.css" type="text/css"><meta name="keywords" content="DataSet,org.axiis.data.DataSet,AGGREGATE_AVG,AGGREGATE_SUM,columnCount,data,groupName,groupedData,name,nullValues,parent,rowCount,sourceData,sums,aggregateData,aggregateTable,pivotTable,processCsvAsTable,processTsvAsTable,processXmlString"><title>org.axiis.data.DataSet</title></head><body><script language="javascript" type="text/javascript" src="../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'DataSet - API Documentation';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">API Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../package-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../class-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../all-index-A.html" onclick="loadClassListFrame('../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../index.html?org/axiis/data/DataSet.html&amp;org/axiis/data/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">DataSet</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a>&nbsp;| <a href="#constantSummary">Constants</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("DataSet"); titleBar_setSubNav(true,true,false	,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">org.axiis.data</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  DataSet</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">DataSet  <img src="../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> flash.events.EventDispatcher</td></tr></table><p></p><p></p><p></p>
+	 DataSet is a data utility class that can be used for pre-proccesing of external data into 
+	 usable Flex collections that are easy to process within Axiis Layouts.
+	 Axiis DOES NOT require you use this class for its visualizations and layouts.  Axiis Layouts are designed to 
+	 work with Objects, Arrays, ArrayCollections, and XMLListCollections.   But, when using hierarchal layouts the Axiis framework does expect
+	 parent child relationships are supported through parent-child object relationships.  
+	 
+	 DataSet provides functionality to group, aggregate, pivot, and shape data.
+	 It will support grouping on common fields with operations like sum, count, avg.
+	 It will turn flat table (.csv/array) data into object level data.
+	 <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#columnCount" class="signatureLink">columnCount</a> : int<div class="summaryTableDescription">[read-only] 
+		 The number of columns (attributes) in each Object in the data object.</div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#data" class="signatureLink">data</a> : Object<div class="summaryTableDescription">[read-only] 
+		 The object produced during the most recent call to either
+		 processXmlString, processCsvAsTable, pivotTable, or
+		 aggregateData.</div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#nullValues" class="signatureLink">nullValues</a> : String = NA, null<div class="summaryTableDescription">
+		 A comma-delimited string of values that DataSet should convert to
+		 nulls as it encounters them while processing a CSV.</div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#rowCount" class="signatureLink">rowCount</a> : int<div class="summaryTableDescription">[read-only] 
+		 The number of rows (Objects) in the data object.</div></td><td class="summaryTableOwnerCol">DataSet</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#DataSet()" class="signatureLink">DataSet</a>()</div><div class="summaryTableDescription">
+    	 
+    	 </div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#aggregateData()" class="signatureLink">aggregateData</a>(data:Object, collectionName:String, properties:Array):void</div><div class="summaryTableDescription">
+		 Perform simple aggregations against the "data" property by dynamically adding properties to the parent object.</div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#aggregateTable()" class="signatureLink">aggregateTable</a>(name:String, groupings:Array, summaryCols:Array = null):void</div><div class="summaryTableDescription">
+		 Groups table data into a hierarchal collection of </div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#pivotTable()" class="signatureLink">pivotTable</a>(pivotColumn:int):void</div><div class="summaryTableDescription">
+		 Pivots a table, converting rows to columns and columns to rows.</div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#processCsvAsTable()" class="signatureLink">processCsvAsTable</a>(payload:String, addSummaryFields:Boolean = false):void</div><div class="summaryTableDescription">
+		 Converts a CSV Payload into a table structure
+		 
+		 The structure has the following format:
+		 
+		 
+		 
+		 data.rows[]
+		 
+		 row.index = ordinal position
+		 row.columns[] = array of columns
+		 
+		 column.index = ordinal position
+		 column.name = header name for column
+		  - column.value = value
+		 
+		 
+		 
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#processTsvAsTable()" class="signatureLink">processTsvAsTable</a>(payload:String, addSummaryFields:Boolean = false):void</div><div class="summaryTableDescription">
+		 Converts a TSV Payload into a table structure
+		 
+		 The structure has the following format:
+		 
+		 
+		 
+		 data.rows[]
+		 
+		 row.index = ordinal position
+		 row.columns[] = array of columns
+		 
+		 column.index = ordinal position
+		 column.name = header name for column
+		  - column.value = value
+		 
+		 
+		 
+		 
+		 
+		 </div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#processXmlString()" class="signatureLink">processXmlString</a>(payload:String):void</div><div class="summaryTableDescription">
+		 Converts XML into ActionScript objects.</div></td><td class="summaryTableOwnerCol">DataSet</td></tr></table></div><a name="constantSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Constants</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableConstant"><tr><th>&nbsp;</th><th colspan="2">Constant</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#AGGREGATE_AVG" class="signatureLink">AGGREGATE_AVG</a> : int = 2<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">DataSet</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#AGGREGATE_SUM" class="signatureLink">AGGREGATE_SUM</a> : int = 0<div class="summaryTableDescription">[static] </div></td><td class="summaryTableOwnerCol">DataSet</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="columnCount"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">columnCount</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>columnCount:int</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The number of columns (attributes) in each Object in the data object.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get columnCount():int</code><br/></div><a name="propertyDetail"></a><a name="data"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">data</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>data:Object</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The object produced during the most recent call to either
+		 processXmlString, processCsvAsTable, pivotTable, or
+		 aggregateData.
+		 </p><p>This property can be used as the source for data binding.</p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get data():Object</code><br/></div><a name="propertyDetail"></a><a name="nullValues"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">nullValues</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var nullValues:String = NA, null</code><p></p><p></p><p>
+		 A comma-delimited string of values that DataSet should convert to
+		 nulls as it encounters them while processing a CSV. 
+		 </p></div><a name="propertyDetail"></a><a name="rowCount"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">rowCount</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>rowCount:int</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The number of rows (Objects) in the data object.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get rowCount():int</code><br/></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="DataSet()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">DataSet</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function DataSet()</code><p></p><p>
+    	 
+    	 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="aggregateData()"></a><a name="aggregateData(Object,String,Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">aggregateData</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function aggregateData(data:Object, collectionName:String, properties:Array):void</code><p></p><p></p><p>
+		 Perform simple aggregations against the "data" property by dynamically adding properties to the parent object.
+		 Collections are traversed hierarchally (if you target a nested collection) and aggregations roll up the hierarchy.
+		 Aggregations are added as a dynamic object to the owner of the collection.
+		 		 <pre>
+		 <code>
+		 ownerObject.aggregates.propertyName_sum;
+		 ownerObject.aggregates.propertyName_min;
+		 ownerObject.aggregates.propertyName_max;
+		 ownerObject.aggregates.propertyName_avg;
+		 </code>
+		 </pre>
+		 
+		 <p>
+		 If data is a shapedDataSet (created from flattened hierachal CSV data) or TableData with columns,
+		 aggregation will occur for each column under the aggregates object
+		 <code>aggregates.columns</code> where columns is an ArrayCollection of obj.min, obj.max, obj.sum, obj.avg
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">data</span>:Object</code> &mdash; The name of the collection within the "data" property.  You can use "." notation to drill down to it
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">collectionName</span>:String</code> &mdash; An array of collection item properties you want to aggregate. You can use "." notation to drill down to specific objects within a collection item.
+		 
+		 DEVELOPER NOTE: aggregateData will most likely be deprecated in a future release in favor of a more universal grouping and aggregation format.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">properties</span>:Array</code></td></tr></table></p></div><a name="aggregateTable()"></a><a name="aggregateTable(String,Array,Array)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">aggregateTable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function aggregateTable(name:String, groupings:Array, summaryCols:Array = null):void</code><p></p><p></p><p>
+		 Groups table data into a hierarchal collection of </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">name</span>:String</code> &mdash; 	 
+		 This function assumes you have already created a table structure within the DataSet, which currently can only be generated
+		 via the processCsvAsTable() function;
+		 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">groupings</span>:Array</code> &mdash; property
+		 
+		 SUM is currently the only aggregation supported and is stored in the </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">summaryCols</span>:Array</code> (default = <code>null</code>)<code></code> &mdash; property.
+		 		 
+		 </td></tr></table></p></div><a name="pivotTable()"></a><a name="pivotTable(int)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">pivotTable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function pivotTable(pivotColumn:int):void</code><p></p><p></p><p>
+		 Pivots a table, converting rows to columns and columns to rows.
+		 
+		 Converted Column are given the new field "RowName" indicating their
+		 header.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">pivotColumn</span>:int</code> &mdash; The column to pivot
+		 </td></tr></table></p></div><a name="processCsvAsTable()"></a><a name="processCsvAsTable(String,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">processCsvAsTable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function processCsvAsTable(payload:String, addSummaryFields:Boolean = false):void</code><p></p><p></p><p>
+		 Converts a CSV Payload into a table structure
+		 
+		 <p>The structure has the following format:</p>
+		 
+		 <p>
+		 <ul>
+		 <li>data.rows[]</li>
+		 <ul>
+		 <li>row.index = ordinal position</li>
+		 <li>row.columns[] = array of columns</li>
+		 <ul>
+		 <li>column.index = ordinal position</li>
+		 <li>column.name = header name for column</li>
+		 <li> - column.value = value</li>
+		 </ul>
+		 </ul>
+		 </ul>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">payload</span>:String</code> &mdash; The CSV formatted text to convert. 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">addSummaryFields</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; When true, this method will dynamically add
+		 min and max values to each row for each column.
+		 </td></tr></table></p></div><a name="processTsvAsTable()"></a><a name="processTsvAsTable(String,Boolean)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">processTsvAsTable</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function processTsvAsTable(payload:String, addSummaryFields:Boolean = false):void</code><p></p><p></p><p>
+		 Converts a TSV Payload into a table structure
+		 
+		 <p>The structure has the following format:</p>
+		 
+		 <p>
+		 <ul>
+		 <li>data.rows[]</li>
+		 <ul>
+		 <li>row.index = ordinal position</li>
+		 <li>row.columns[] = array of columns</li>
+		 <ul>
+		 <li>column.index = ordinal position</li>
+		 <li>column.name = header name for column</li>
+		 <li> - column.value = value</li>
+		 </ul>
+		 </ul>
+		 </ul>
+		 </p>
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">payload</span>:String</code> &mdash; The TSV formatted text to convert. 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">addSummaryFields</span>:Boolean</code> (default = <code>false</code>)<code></code> &mdash; When true, this method will dynamically add
+		 min and max values to each row for each column.
+		 </td></tr></table></p></div><a name="processXmlString()"></a><a name="processXmlString(String)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">processXmlString</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function processXmlString(payload:String):void</code><p></p><p></p><p>
+		 Converts XML into ActionScript objects. Each element becomes and
+		 object and each attribute becomes a property.
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">payload</span>:String</code> &mdash; The XML string to be converted.
+		 </td></tr></table></p></div><div class="detailSectionHeader">Constant Detail</div><a name="constantDetail"></a><a name="AGGREGATE_AVG"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">AGGREGATE_AVG</td><td class="detailHeaderType">Constant</td></tr></table><div class="detailBody"><code>public static const AGGREGATE_AVG:int = 2</code><p></p></div><a name="constantDetail"></a><a name="AGGREGATE_SUM"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">AGGREGATE_SUM</td><td class="detailHeaderType">Constant</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public static const AGGREGATE_SUM:int = 0</code><p></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Fri Oct 2 2009, 08:24 PM -04:00  </center></div></body></html><!--<br/>Fri Oct 2 2009, 08:24 PM -04:00  -->

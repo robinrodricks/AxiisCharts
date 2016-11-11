@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<axis:AxisBase xmlns="*" 
+	      xmlns:mx="http://www.adobe.com/2006/mxml"
+	      xmlns:axis="org.axiis.charts.axis.*"
+	      xmlns:degrafa="http://www.degrafa.com/2007"
+	      xmlns:axiis="http://www.axiis.org/2009" xmlns:local="org.axiis.extras.charts.axis.*">
+	      
+	<mx:Script>
+		<![CDATA[
+			import mx.graphics.Stroke;
+			import mx.collections.ArrayCollection;
+			import com.degrafa.core.IGraphicsFill;
+			import mx.graphics.IFill;
+			import com.degrafa.paint.SolidStroke;
+			import org.axiis.extras.layouts.scale.SmithChartScale;
+			import com.degrafa.geometry.EllipticalArc;
+			import com.vizsage.as3mathlib.math.alg.Complex;
+			import com.vizsage.as3mathlib.math.alg.MLPoint;
+			import com.vizsage.as3mathlib.math.alg.MLVector;
+			import org.axiis.layouts.scale.IScale;
+		
+			[Bindable]
+			public var scale:SmithChartScale;
+			
+			//returns the startAngle value for a given iteration
+			private function resistanceStartAngleModifier(iterationCount:int, value:Number):Number
+			{
+				return dataProvider[iterationCount].resarc0;
+				
+//				if(iterationCount == 0)
+//					return 0;
+//					
+//				var v1:MLVector = new MLVector(1,0);
+//				var z0:Number = dataProvider[iterationCount].z0;
+//				var startPoint:Complex = dataProvider[iterationCount].sp0;
+//				
+//				//find the center of this circle
+//				var center:MLPoint = new MLPoint(scale.center + z0/(z0+1) * scale.chartRadius, scale.center);
+//				
+//				//figure out location angle of start point
+//				var rc:Complex = Complex.div(Complex.subt(startPoint, Complex.One), Complex.adds(startPoint, Complex.One));
+//				
+//				var startPnt:MLPoint = new MLPoint(scale.center + rc._real * scale.chartRadius, scale.center - rc._imag * scale.chartRadius);
+//				
+//				var v2:MLVector = MLVector.OO.fromPointVals(center.x, startPnt.x, center.y, startPnt.y);
+//				v2.normalize();
+//				
+//				value = Math.acos(v1.dotProduct(v2)) * 180.0 / Math.PI;
+//				
+//				//save off the arc length so the next modifier can pick it up
+//				//it's just simpler to calculate it here
+//				dataProvider[iterationCount].arc0 = 360 -  2*value;
+//				trace(", resarc0: "+value+", resarc1: "+ dataProvider[iterationCount].arc0);
+//				return value;
+			}
+			
+			/**
+			 * returns the arc length for this resistance arc
+			 */
+			private function resistanceArcModifier(iterationCount:int, value:Number):Number
+			{
+//				if(iterationCount == 0)
+//					return 360;
+					
+				return dataProvider[iterationCount].resarc1;
+			}
+			
+			private function xModifier(iterationCount:int, value:Number):Number
+			{
+				return (scale.center+scale.chartRadius) - 2 * (dataProvider[iterationCount].r*scale.chartRadius/1000);			
+			}
+			
+			private function yModifier(iterationCount:int, value:Number):Number
+			{
+				return scale.center - (dataProvider[iterationCount].r*scale.chartRadius/1000);
+			}
+			
+			private function widthModifier(iterationCount:int, value:Number):Number
+			{
+				return 2 * (dataProvider[iterationCount].r*scale.chartRadius/1000);				
+			}
+			
+			private function heightModifier(iterationCount:int, value:Number):Number
+			{
+				return 2 * (dataProvider[iterationCount].r*scale.chartRadius/1000);				
+			}
+			
+			/**
+			 * returns the stroke for this resistance arc
+			 */
+			private function strokeModifier(iterationCount:int, value:Object):Object
+			{
+				return dataProvider[iterationCount].stroke0;
+			}
+			
+			/**
+			 * Reinitialize and redraw the graph
+			 */
+			private function onValueChanged():void
+			{
+				if(dataProvider == null)
+					dataProvider = SmithChartAxisData.arcData;
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<!--- @private -->
+	<axiis:NumericExpression id="widthWatcher" value="{this.width}" valueChanged="onValueChanged();" />
+	
+	<!--- @private -->
+	<axiis:NumericExpression id="heightWatcher" value="{this.height}" valueChanged="onValueChanged();" />
+
+	<axis:fills>
+		<degrafa:SolidFill id="whiteFill"
+						 color="#FFFFFF"/>
+		<degrafa:RadialGradientFill id="gradientFill" angle="0" focalPointRatio="1">
+			<degrafa:GradientStop alpha=".25" color="#ff0000" ratio="0"/>
+			<degrafa:GradientStop alpha=".25" color="#ffff00" ratio=".25"/>
+			<degrafa:GradientStop alpha=".25" color="#00ff00" ratio=".5"/>
+			<degrafa:GradientStop alpha=".25" color="#00ffff" ratio=".85"/>
+			<degrafa:GradientStop alpha=".25" color="#0000ff" ratio="1"/>
+		</degrafa:RadialGradientFill>
+	</axis:fills>
+	
+	<axis:referenceRepeater>
+		<axiis:GeometryRepeater id="resistanceArcRepeater">
+			<axiis:geometry>
+				<degrafa:EllipticalArc/>
+			</axiis:geometry>
+			<axiis:modifiers>
+				<axiis:PropertyModifier property="x" modifier="{xModifier}" modifierOperator="none"/>
+				<axiis:PropertyModifier property="y" modifier="{yModifier}" modifierOperator="none"/>
+				<axiis:PropertyModifier property="width" modifier="{widthModifier}" modifierOperator="none"/>
+				<axiis:PropertyModifier property="height" modifier="{heightModifier}" modifierOperator="none"/>
+				<axiis:PropertyModifier property="startAngle" modifier="{resistanceStartAngleModifier}" modifierOperator="none"/>
+				<axiis:PropertyModifier property="arc" modifier="{resistanceArcModifier}" modifierOperator="none"/>
+				<axiis:PropertyModifier property="stroke" modifier="{strokeModifier}" modifierOperator="none"/>
+			</axiis:modifiers>
+		</axiis:GeometryRepeater>
+	</axis:referenceRepeater>
+	
+	<axis:drawingGeometries>
+		<degrafa:EllipticalArc x="{currentReference.x}"
+							   y="{currentReference.y}"
+							   width="{currentReference.width}"
+							   height="{currentReference.height}"
+							   startAngle="{EllipticalArc(currentReference).startAngle}"
+							   arc="{EllipticalArc(currentReference).arc}"
+							   stroke="{currentReference.stroke}"/>
+	</axis:drawingGeometries>
+
+</axis:AxisBase>

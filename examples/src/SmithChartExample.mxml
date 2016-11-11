@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:axiis="http://www.axiis.org/2009"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:scale="org.axiis.extras.layouts.scale.*"	
+	xmlns:charts="org.axiis.charts.*"
+	xmlns:geometry="com.degrafa.geometry.*"
+	xmlns:Examples="Examples.*"
+	backgroundGradientColors="[0xDDDDDD,0xF5F5F5]"
+	layout="absolute"
+	applicationComplete="init()"
+	viewSourceURL="srcview/index.html"
+	xmlns:axis="org.axiis.extras.charts.axis.*"
+	xmlns:chartextra="org.axiis.extras.charts.*">
+
+	<mx:Script>
+		<![CDATA[
+			import com.degrafa.paint.SolidStroke;
+			import com.vizsage.as3mathlib.math.alg.Complex;
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var impedanceData:ArrayCollection = null;
+			
+			private function init():void
+			{
+ 				var data:Array = 
+ 			  [ [
+				{imped: new Complex(44.38, 29.454), freq: 0.98},
+				{imped: new Complex(55.19, 19.534), freq: 0.99},
+				{imped: new Complex(50.00, -0.001), freq: 1.0},
+				{imped: new Complex(47.57, 2.307), freq: 1.01},
+				{imped: new Complex(78.16, -22.233), freq: 1.02}
+			  ],
+			  [
+				{imped: new Complex(27.06, 4.694), freq: 0.98},
+				{imped: new Complex(35.66, 7.627), freq: 0.99},
+				{imped: new Complex(50.00, -0.001), freq: 1.0},
+				{imped: new Complex(47.36, -2.050), freq: 1.01},
+				{imped: new Complex(59.96, 29.805), freq: 1.02}
+			  ]	];
+			  
+			  impedanceData = new ArrayCollection(data);
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Style source="styles/Axiis_Examples.css"/>
+	
+	<mx:ArrayCollection id="dataFills">
+		<mx:Array>
+			<degrafa:LinearGradientFill angle="90">
+	            <degrafa:GradientStop ratio="0" alpha=".85" color="#000099"/>
+	            <degrafa:GradientStop ratio="1" alpha=".85" color="#9999ff"/>
+			</degrafa:LinearGradientFill>
+			<degrafa:LinearGradientFill angle="90">
+	            <degrafa:GradientStop ratio="0" alpha=".85" color="#990000"/>
+	            <degrafa:GradientStop ratio="1" alpha=".85" color="#ff9999"/>
+			</degrafa:LinearGradientFill>
+		</mx:Array>
+	</mx:ArrayCollection>
+	<mx:ArrayCollection id="lineColors">
+		<mx:Array>
+			<mx:String>#000099</mx:String>
+			<mx:String>#990000</mx:String>
+		</mx:Array>
+	</mx:ArrayCollection>
+	
+	<!-- Common calculations used by geometries -->
+	<axiis:NumericExpression id="boundsRadius" value="{Math.min(this.height,this.width)}"/>
+	
+	<!-- Background template -->
+	<Examples:ExampleBackground width="{this.width}" height="{this.height}" title="Smith Chart Graph" subTitle="Custom Visualization"/>
+	
+	<!-- normalize all input data from 50 + j0 to 1 + j0 for display on the chart -->
+	<scale:SmithChartScale id="sc_scale" z0="{new Complex(50,0)}" maxLayout="{boundsRadius.value}"/>
+	
+	<!-- Data Canvas that holds our geometries -->
+	<chartextra:SmithChart id="sc" 
+		width="{boundsRadius.value}"
+		height="{boundsRadius.value}"
+		sc_scale="{sc_scale}"
+		dataProvider="{impedanceData}"
+		dataFills="{dataFills}"
+		lineColors="{lineColors}"
+		verticalCenter="0"
+		horizontalCenter="0"
+		scaleX="{zoomSlider.value}"
+		scaleY="{zoomSlider.value}"/>
+
+	<!-- Zoom slider -->
+	<mx:Label text="Zoom:" left="20" top="80"/>
+	<mx:HSlider id="zoomSlider" left="10" top="100" width="300" minimum="0.5" maximum="20" value="1" snapInterval="0.1" tickValues="[1]"/>
+</mx:Application>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataCanvas xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns:layouts="org.axiis.extras.layouts.*"
+	xmlns="org.axiis.*" xmlns:transform="com.degrafa.transform.*">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.degrafa.paint.SolidFill;
+			import mx.collections.ArrayCollection; 
+			import com.degrafa.core.IGraphicsFill;
+			
+			[Bindable]
+			public var initialFill:IGraphicsFill = new SolidFill("blue");
+			
+			[Bindable]
+			public var plusFill:IGraphicsFill = new SolidFill("green");
+			
+			[Bindable]
+			public var minusFill:IGraphicsFill = new SolidFill("red");
+			
+			[Bindable]
+			public var finalFill:IGraphicsFill = new SolidFill("magenta");
+			
+			[Bindable]
+			public var labelField:String;
+			
+			[Bindable]
+			public var dataField:String;
+			
+			private function computeFill(o:Object):com.degrafa.core.IGraphicsFill
+			{
+				var arr:ArrayCollection = dataProvider as ArrayCollection;
+				if(!arr)
+					return null;
+				
+				var index:int = arr.getItemIndex(o);
+				if(index == 0)
+				{
+					return initialFill;
+				}
+				else if(index == arr.length - 1)
+				{
+					return finalFill;
+				}
+				else
+				{
+					var prev:Object = arr.getItemAt(index - 1);
+					if(prev.count > o.count)
+					{
+						return minusFill;
+					}
+					else
+					{
+						return plusFill;
+					}
+				}
+			}
+		]]>
+	</mx:Script>
+	
+	<layouts>
+		<layouts:HWaterfallLayout id="waterfallLayout"
+			dataProvider="{dataProvider}"
+			dataField="{dataField}"
+			width="{width}"
+			height="{height}"
+			showDataTips="false">
+			<layouts:drawingGeometries>
+				<degrafa:RegularRectangle
+					x="{waterfallLayout.currentReference.x}"
+					y="{height - waterfallLayout.currentReference.y}"
+					width="{waterfallLayout.currentReference.width}"
+					height="{waterfallLayout.currentReference.height}"
+					fill="{computeFill(waterfallLayout.currentDatum)}">
+					<degrafa:transform>
+						<degrafa:ScaleTransform scaleY="-1" registrationPoint="topLeft"/>
+					</degrafa:transform>
+				</degrafa:RegularRectangle>
+				<degrafa:RasterText fontSize="11" fontFamily="Verdana"
+					text="{waterfallLayout.currentDatum[labelField]}"
+					x="{waterfallLayout.currentReference.x}"
+					y="{height}"/>
+			</layouts:drawingGeometries>
+		</layouts:HWaterfallLayout>
+	</layouts>
+	
+</DataCanvas>

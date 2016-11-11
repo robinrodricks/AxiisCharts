@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../../override.css" type="text/css"><meta name="keywords" content="GeometryRepeater,org.axiis.layouts.utils.GeometryRepeater,currentIteration,geometry,iteration,iterationLoopComplete,millisecondsPerFrame,modifier,modifierOperator,modifiers,property,apply,beginModify,end,repeat"><title>org.axiis.layouts.utils.GeometryRepeater</title></head><body><script language="javascript" type="text/javascript" src="../../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'GeometryRepeater - API Documentation';
+				var baseRef = '../../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">API Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../../package-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../../class-summary.html" onclick="loadClassListFrame('../../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../../all-index-A.html" onclick="loadClassListFrame('../../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../../index.html?org/axiis/layouts/utils/GeometryRepeater.html&amp;org/axiis/layouts/utils/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">GeometryRepeater</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("GeometryRepeater"); titleBar_setSubNav(false,true,false	,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">org.axiis.layouts.utils</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  GeometryRepeater</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">GeometryRepeater  <img src="../../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> flash.events.EventDispatcher</td></tr></table><p></p><p></p><p></p>
+	 GeometryRepeater modifies geometries through the use of
+	 PropertyModifiers.
+	 
+	 When modifications take longer than a single frame, they are distributed
+	 over multiple frames to prevent the application from appearing to have
+	 frozen. Objects can register callback functions so they can be notified
+	 when the GeometryRepeater begins or ends each iteration or ends its
+	 final iteration.
+	 <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#currentIteration" class="signatureLink">currentIteration</a> : int<div class="summaryTableDescription">[read-only] 
+		 The number of iterations that the GeometryRepeater has processed.</div></td><td class="summaryTableOwnerCol">GeometryRepeater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#geometry" class="signatureLink">geometry</a> : <a href="../../../../com/degrafa/geometry/Geometry.html">Geometry</a><div class="summaryTableDescription">
+		 The geometry that should be repeated.</div></td><td class="summaryTableOwnerCol">GeometryRepeater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#iterationLoopComplete" class="signatureLink">iterationLoopComplete</a> : Boolean<div class="summaryTableDescription">[read-only] 
+		 A flag indicating that the GeometryRepeater has finished repeating
+		 but the geometry's properties have not yet been restored to their
+		 original values.</div></td><td class="summaryTableOwnerCol">GeometryRepeater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#millisecondsPerFrame" class="signatureLink">millisecondsPerFrame</a> : Number = 50<div class="summaryTableDescription">
+		 Determines how many milliseconds repeater will iterate before waiting for the next frame;
+		 </div></td><td class="summaryTableOwnerCol">GeometryRepeater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#modifiers" class="signatureLink">modifiers</a> : Array<div class="summaryTableDescription">
+		 An array of PropertyModifiers that should be applied with each
+		 iteration of the GeometryRepeater.</div></td><td class="summaryTableOwnerCol">GeometryRepeater</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#GeometryRepeater()" class="signatureLink">GeometryRepeater</a>()</div><div class="summaryTableDescription">
+		 Constructor.</div></td><td class="summaryTableOwnerCol">GeometryRepeater</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#repeat()" class="signatureLink">repeat</a>(numIterations:int, preIterationCallback:Function = null, postIterationCallback:Function = null, completeCallback:Function = null):void</div><div class="summaryTableDescription">
+		 Begins the modifications process.</div></td><td class="summaryTableOwnerCol">GeometryRepeater</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="currentIteration"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">currentIteration</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>currentIteration:int</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 The number of iterations that the GeometryRepeater has processed.
+		 When the GeometryRepeater is not running, this value is -1.
+		 </p><p>This property can be used as the source for data binding.</p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get currentIteration():int</code><br/></div><a name="propertyDetail"></a><a name="geometry"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">geometry</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var geometry:<a href="../../../../com/degrafa/geometry/Geometry.html">Geometry</a></code><p></p><p></p><p>
+		 The geometry that should be repeated.
+		 </p></div><a name="propertyDetail"></a><a name="iterationLoopComplete"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">iterationLoopComplete</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>iterationLoopComplete:Boolean</code>&nbsp;&nbsp;[read-only] <p></p><p></p><p>
+		 A flag indicating that the GeometryRepeater has finished repeating
+		 but the geometry's properties have not yet been restored to their
+		 original values.
+		 </p><br/><span class="label"> Implementation </span><br/><code>&nbsp;&nbsp;&nbsp;&nbsp;public function get iterationLoopComplete():Boolean</code><br/></div><a name="propertyDetail"></a><a name="millisecondsPerFrame"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">millisecondsPerFrame</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var millisecondsPerFrame:Number = 50</code><p></p><p></p><p>
+		 Determines how many milliseconds repeater will iterate before waiting for the next frame;
+		 </p></div><a name="propertyDetail"></a><a name="modifiers"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">modifiers</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var modifiers:Array</code><p></p><p></p><p>
+		 An array of PropertyModifiers that should be applied with each
+		 iteration of the GeometryRepeater.
+		 </p></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="GeometryRepeater()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">GeometryRepeater</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function GeometryRepeater()</code><p></p><p>
+		 Constructor.
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="repeat()"></a><a name="repeat(int,Function,Function,Function)"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">repeat</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function repeat(numIterations:int, preIterationCallback:Function = null, postIterationCallback:Function = null, completeCallback:Function = null):void</code><p></p><p></p><p>
+		 Begins the modifications process.
+		 
+		 <p>
+		 Repeatedly applies the PropertyModifiers the specified number of
+		 times. Optionally, you can set up callbacks that this method will
+		 call before the PropertyModifiers are applied, after they are
+		 applied, and when the final iteration completes.
+		 </p> 
+		 
+		 </p><p><span class="label"> Parameters </span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20px"></td><td><code><span class="label">numIterations</span>:int</code> &mdash; The number of iterations that should be
+		 executed by before the GeometryRepeater ends. 
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">preIterationCallback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A function that will be called at the
+		 beginning of every repeat iteration, before the PropertyModifiers are
+		 applied.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">postIterationCallback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A function that will be called on each
+		 iteration after the PropertyModifiers have been applied and the
+		 currentIteration has been incremented.
+		 </td></tr><tr><td class="paramSpacer">&nbsp;</td></tr><tr><td width="20px"></td><td><code><span class="label">completeCallback</span>:Function</code> (default = <code>null</code>)<code></code> &mdash; A function that will be called when
+		 <code>numIterations</code> of this GeometryRepeater have been
+		 executed.
+		 </td></tr></table></p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Fri Oct 2 2009, 08:24 PM -04:00  </center></div></body></html><!--<br/>Fri Oct 2 2009, 08:24 PM -04:00  -->

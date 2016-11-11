@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<!---
+	Based on Pixelbreaker's polar clock: http://blog.pixelbreaker.com/polarclock/
+-->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	layout="absolute"
+	backgroundColor="0xcccccc"
+	applicationComplete="start()"
+	xmlns:axiis="http://www.axiis.org/2009"
+	xmlns:geometry="com.degrafa.geometry.*"
+	xmlns:degrafa="http://www.degrafa.com/2007" xmlns:Examples="Examples.*">
+
+	<mx:Script>
+		<![CDATA[
+			import org.axiis.managers.FreeDataTipManager;
+			import org.axiis.core.AxiisSprite;
+			import flash.utils.setTimeout;
+			import org.axiis.data.DataSet;
+
+			private function start():void
+			{
+				var arr:Array = [];
+				var now:Date = new Date();
+				var daysInMonth:Number = new Date(now.fullYear, now.month + 1, 0).date;
+				arr.push((now.seconds * 1000 + now.milliseconds) / (60 * 1000));
+				arr.push((now.minutes * 60 + now.seconds) / (60 * 60));
+				arr.push((now.hours * 60 + now.minutes) / (60 * 24));
+				arr.push((now.date * 24 + now.hours) / (daysInMonth * 24));
+				arr.push(now.month / 12);
+				radialLayout.dataProvider = arr.concat().reverse();
+				
+				setTimeout(start,10);
+			}
+		]]>
+	</mx:Script>
+
+	<Examples:ExampleBackground width="100%" height="100%" title="Polar Clock" subTitle=""/>
+
+	<mx:Number id="wedgeGap">10</mx:Number>
+	<mx:Number id="innerRadius">20</mx:Number>
+
+	<axiis:NumericExpression id="centerExpression"
+		value="{Math.min(dc.width,dc.height)/2}"/>
+
+	<mx:Array id="fills">
+		<!--<degrafa:SolidFill color="0xcc0099"/>-->
+		<degrafa:SolidFill color="0x9900cc"/>
+		<degrafa:SolidFill color="0x0099cc"/>
+		<degrafa:SolidFill color="0x00cc00"/>
+		<degrafa:SolidFill color="0xff9900"/>
+		<degrafa:SolidFill color="0xcc0000"/>
+	</mx:Array>
+
+	<axiis:DataCanvas id="dc"
+		width="{height - 110}"
+		height="{height - 110}"
+		y="100"
+		horizontalCenter="0">
+		<axiis:layouts>
+			<axiis:ConcentricWedgeLayout id="radialLayout"
+				width="{dc.width}"
+				height="{dc.height}"
+				innerRadius="20"
+				radialGap="10"
+				showDataTips="false">
+
+				<axiis:drawingGeometries>
+					<geometry:Wedge centerX="{radialLayout.width/2}"
+						centerY="{radialLayout.height/2}"
+						innerRadius="{radialLayout.currentReference['innerRadius']}"
+						outerRadius="{radialLayout.currentReference['outerRadius']}"
+						startAngle="{radialLayout.currentReference['startAngle']}"
+						arc="{Number(radialLayout.currentDatum) * 360}"
+						fill="{fills[radialLayout.currentIndex]}">
+					</geometry:Wedge>
+				</axiis:drawingGeometries>
+			</axiis:ConcentricWedgeLayout>
+		</axiis:layouts>
+		<axiis:filters>
+			<mx:DropShadowFilter/>
+		</axiis:filters>
+	</axiis:DataCanvas>
+
+</mx:Application>

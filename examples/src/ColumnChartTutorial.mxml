@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:axiis="http://www.axiis.org/2009"
+	layout="absolute"  
+	creationComplete="start();" xmlns:degrafa="http://www.degrafa.com/2007">
+	
+	<mx:Script>
+		<![CDATA[
+		import org.axiis.data.DataSet;
+		
+		private var ds:DataSet = new DataSet();
+		
+		public function start():void
+		{
+		  ds.processXmlString(countryData);
+		  ds.aggregateData(ds.data.object, "country.medal", ["count"]);
+		  ds.aggregateData(ds.data.object, "country",
+				["aggregates.medal_count_sum"]);
+		
+		 dataProvider=ds.data.object.country;
+		  		
+		 trace(ds.data.object.aggregates.medal_count_sum);
+		 vScale.maxValue=ds.data.object.aggregates['country_aggregates:medal_count_sum_max'];
+		
+		 dc.invalidateDisplayList();
+		}
+		]]>
+		</mx:Script>
+	
+	<mx:String id="countryData" source="data/2008_Olympics.xml"/>
+	
+	<mx:Object id="dataProvider"/>
+	
+	<axiis:LinearScale id="vScale" minValue="0" minLayout="0" maxLayout="{dc.height}"/>
+	
+	<axiis:DataCanvas id="dc" width="800" height="800" verticalCenter="0" horizontalCenter="0">
+		<axiis:backgroundGeometries>
+			<axiis:VAxis
+				verticalScale="{vScale}"
+				width="{dc.width}"
+				height="{dc.height}"
+				tickGap="5"
+				/>
+		</axiis:backgroundGeometries>
+		<axiis:layouts>
+			<axiis:BaseLayout id="hLayout"
+				x="20"
+				width="{dc.width-20}" 
+				height="{dc.height}"
+				dataProvider="{dataProvider}"
+				dataField="aggregates.medal_count_sum"
+				labelField="name">
+				<axiis:referenceRepeater>
+					<axiis:GeometryRepeater>
+						<axiis:geometry>
+							<degrafa:RegularRectangle
+								x="0"
+								y="0"
+								width="{(hLayout.width / hLayout.itemCount) - (hLayout.width/hLayout.itemCount)*.1}"
+								height="{hLayout.height}"/>
+						</axiis:geometry>
+						<axiis:modifiers>
+							<axiis:PropertyModifier property="x" 
+									modifier="{hLayout.width / hLayout.itemCount}"/>
+						</axiis:modifiers>
+					</axiis:GeometryRepeater>
+				</axiis:referenceRepeater>
+				<axiis:drawingGeometries>
+					<degrafa:RegularRectangle
+						width="{hLayout.currentReference.width}"
+						height="{vScale.valueToLayout(hLayout.currentValue)}"
+						x="{hLayout.currentReference.x}"
+						y="{hLayout.currentReference.height-vScale.valueToLayout(hLayout.currentValue)}"
+					  
+					    stroke="{stroke}"/>
+					<degrafa:RasterText 
+						text="{hLayout.currentLabel}"
+				
+						fontFamily="Arial"
+					 	align="center"
+						x="{hLayout.currentReference.x}"
+						width="{hLayout.currentReference.width}"
+						y="{hLayout.height+5}"/>
+					<degrafa:RasterText 
+						text="{hLayout.currentValue}"
+						fontFamily="Arial"
+					 	align="center"
+						x="{hLayout.currentReference.x}"
+						width="{hLayout.currentReference.width}"
+						y="{hLayout.currentReference.height-vScale.valueToLayout(hLayout.currentValue)-20}"/>
+					
+				</axiis:drawingGeometries>
+			</axiis:BaseLayout>
+		</axiis:layouts>
+	</axiis:DataCanvas>
+	
+	<axiis:LayoutAutoPalette id="ap" colorFrom="0xDD3333" colorTo="0x3333DD" layout="{hLayout}"/>
+
+	<degrafa:LinearGradientFill id="fill" angle="90">
+		<degrafa:GradientStop color="{ap.currentColor}"/>
+		<degrafa:GradientStop color="{ap.currentColor | 0x444444}" alpha=".7"/>
+	</degrafa:LinearGradientFill>
+	
+	<degrafa:LinearGradientStroke id="stroke" angle="45">
+		<degrafa:GradientStop color="{0}"/>
+		<degrafa:GradientStop color="{0}"/>
+	</degrafa:LinearGradientStroke>
+	
+</mx:Application>

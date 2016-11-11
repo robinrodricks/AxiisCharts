@@ -1,0 +1,113 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!-- saved from url=(0014)about:internet --><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="../../../style.css" type="text/css" media="screen"><link rel="stylesheet" href="../../../print.css" type="text/css" media="print"><link rel="stylesheet" href="../../../override.css" type="text/css"><meta name="keywords" content="State,org.axiis.states.State,enabled,enterStateEvent,exitStateEvent,propagateToAncestors,propagateToAncestorsSiblings,propagateToDescendents,propagateToSiblings,properties,targets,values,apply,remove"><title>org.axiis.states.State</title></head><body><script language="javascript" type="text/javascript" src="../../../asdoc.js"></script><script language="javascript" type="text/javascript" src="../../../help.js"></script><script language="javascript" type="text/javascript" src="../../../cookies.js"></script><script language="javascript" type="text/javascript"><!--
+				asdocTitle = 'State - API Documentation';
+				var baseRef = '../../../';
+				window.onload = configPage;
+			--></script>
+<script type="text/javascript">
+			scrollToNameAnchor();
+		</script><table class="titleTable" cellpadding="0" cellspacing="0" id="titleTable" style="display:none"><tr><td class="titleTableTitle" align="left">API Documentation</td><td class="titleTableTopNav" align="right"><a href="../../../package-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Packages</a>&nbsp;|&nbsp;<a href="../../../class-summary.html" onclick="loadClassListFrame('../../../all-classes.html')">All Classes</a>&nbsp;|&nbsp;<a href="../../../all-index-A.html" onclick="loadClassListFrame('../../../index-list.html')">Index</a>&nbsp;|&nbsp;<a id="framesLink1" href="../../../index.html?org/axiis/states/State.html&amp;org/axiis/states/class-list.html">Frames</a><a id="noFramesLink1" style="display:none" href="" onclick="parent.location=document.location"> No Frames </a></td><td class="titleTableLogo" align="right" rowspan="3"><img src="../../../images/logo.jpg" class="logoImage" alt=" Adobe Logo " title=" Adobe Logo "></td></tr><tr class="titleTableRow2"><td class="titleTableSubTitle" id="subTitle" align="left">State</td><td class="titleTableSubNav" id="subNav" align="right"><a href="#propertySummary">Properties</a>&nbsp;| <a href="#methodSummary">Methods</a></td></tr><tr class="titleTableRow3"><td colspan="3">&nbsp;</td></tr></table><script language="javascript" type="text/javascript" xml:space="preserve">
+				<!--
+				
+					if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("State"); titleBar_setSubNav(false,true,false	,false,false,false,true,false,false	,false,false,false,false,false);}	
+				-->
+			</script><div xmlns:fn="http://www.w3.org/2005/xpath-functions" class="MainContent"><table class="classHeaderTable" cellpadding="0" cellspacing="0"><tr><td class="classHeaderTableLabel">Package</td><td><a href="package-detail.html" onclick="javascript:loadClassListFrame('class-list.html')">org.axiis.states</a></td></tr><tr><td class="classHeaderTableLabel">Class</td><td class="classSignature">public  class  State</td></tr><tr><td class="classHeaderTableLabel">Inheritance</td><td class="inheritanceList">State  <img src="../../../images/inherit-arrow.gif" title="Inheritance" alt="Inheritance" class="inheritArrow"> Object</td></tr></table><p></p><p></p><p></p>
+	 States describe modifications to properties that should occur as a result
+	 of an event and provides a mechanicsm to make and undo those changes.
+	 A State uses three parallel Arrays -- targets, properties, and values --
+	 to define these modifications.  For example, this declaration
+	 
+	 <pre>
+	                 <code>
+	 &lt;axiis:State id="myState"
+	 	enterStateEvent="mouseOver"
+	 	exitStateEvent="mouseOut"
+	 	targets="{[myTarget1,myTarget1,myTarget2]}"
+	 	properties="{['width','height','radius']}"
+	 	values="{[w,h,r]}" /&gt;
+	 </code>
+	              </pre>
+	 
+	 indicates that <code>myTarget1.width</code> and <code>myTarget1.height</code>
+	 should be set to <code>w</code> and <code>h</code>, respectively and
+	 <code>myTarget2.radius</code> should be set to <code>r</code> when the
+	 owner of this state is moused over.  These values should be unset when
+	 the mouse is moved off of the owner.
+	 
+	 <p>
+	 Within Axiis, an Array of States can be set to any Layout's <code>states</code>
+	 property. As Layouts create children, each child sets up listeners on
+	 itself for the Layout's states' <code>enterStateEvent</code> and
+	 <code>exitStateEvent</code> events. When those events are triggered, the
+	 relevant state's apply and remove methods are called, respectively. This
+	 is usually used to modify the <code>drawingGeometry</code> of the Layout. 
+	 </p>
+	           <p></p><br/><hr></div><a name="propertySummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Properties</div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableProperty"><tr><th>&nbsp;</th><th colspan="2">Property</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#enabled" class="signatureLink">enabled</a> : Boolean = true<div class="summaryTableDescription"></div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#enterStateEvent" class="signatureLink">enterStateEvent</a> : String<div class="summaryTableDescription">
+		 The eventType of the Event indicating that this state should be
+		 activated.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#exitStateEvent" class="signatureLink">exitStateEvent</a> : String<div class="summaryTableDescription">
+		 The eventType of the Event indicating that this state should be
+		 removed.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#propagateToAncestors" class="signatureLink">propagateToAncestors</a> : Boolean = false<div class="summaryTableDescription">
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its AxiisSprite ancestors should enter the state as well.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#propagateToAncestorsSiblings" class="signatureLink">propagateToAncestorsSiblings</a> : Boolean = false<div class="summaryTableDescription">
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its AxiisSprite ancestors and their children should enter the state
+		 as well.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#propagateToDescendents" class="signatureLink">propagateToDescendents</a> : Boolean = true<div class="summaryTableDescription">
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its descendents should enter the state as well.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#propagateToSiblings" class="signatureLink">propagateToSiblings</a> : Boolean = false<div class="summaryTableDescription">
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its siblings should enter the state as well.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#properties" class="signatureLink">properties</a> : Array<div class="summaryTableDescription">
+		 An Array of Strings that define the properties on the corresponding
+		 Objects in the targets Array that should be modified.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#targets" class="signatureLink">targets</a> : Array<div class="summaryTableDescription">
+		 An Array of Objects that should have one or more of their properties
+		 modified by this state.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><a href="#values" class="signatureLink">values</a> : Array<div class="summaryTableDescription">
+		 An Array containing the values that the corresponding target's
+		 properties should be set to when this State is applied.</div></td><td class="summaryTableOwnerCol">State</td></tr></table></div><a name="methodSummary"></a><div class="summarySection"><div class="summaryTableTitle">Public Methods </div><table cellspacing="0" cellpadding="3" class="summaryTable " id="summaryTableMethod"><tr><th>&nbsp;</th><th colspan="2">Method</th><th class="summaryTableOwnerCol">Defined By</th></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#State()" class="signatureLink">State</a>()</div><div class="summaryTableDescription">
+		 Constructor.</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#apply()" class="signatureLink">apply</a>():void</div><div class="summaryTableDescription">
+		 Modifies each Object at index i in the targets Array
+		 by setting its corresponding property, properties[i],
+		 to value[i].</div></td><td class="summaryTableOwnerCol">State</td></tr><tr class=""><td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol"><div class="summarySignature"><a href="#remove()" class="signatureLink">remove</a>():void</div><div class="summaryTableDescription">
+		 Returns the targets' properties to their original values, undoing the
+		 effects of the previous call to apply.</div></td><td class="summaryTableOwnerCol">State</td></tr></table></div><script language="javascript" type="text/javascript"><!--
+										showHideInherited();
+										--></script><div class="MainContent"><div class="detailSectionHeader">Property Detail</div><a name="propertyDetail"></a><a name="enabled"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">enabled</td><td class="detailHeaderType">property</td></tr></table><div class="detailBody"><code>public var enabled:Boolean = true</code><p></p></div><a name="propertyDetail"></a><a name="enterStateEvent"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">enterStateEvent</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var enterStateEvent:String</code><p></p><p></p><p>
+		 The eventType of the Event indicating that this state should be
+		 activated.
+		 </p></div><a name="propertyDetail"></a><a name="exitStateEvent"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">exitStateEvent</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var exitStateEvent:String</code><p></p><p></p><p>
+		 The eventType of the Event indicating that this state should be
+		 removed.
+		 </p></div><a name="propertyDetail"></a><a name="propagateToAncestors"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">propagateToAncestors</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var propagateToAncestors:Boolean = false</code><p></p><p></p><p>
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its AxiisSprite ancestors should enter the state as well.
+		 </p></div><a name="propertyDetail"></a><a name="propagateToAncestorsSiblings"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">propagateToAncestorsSiblings</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var propagateToAncestorsSiblings:Boolean = false</code><p></p><p></p><p>
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its AxiisSprite ancestors and their children should enter the state
+		 as well.
+		 </p></div><a name="propertyDetail"></a><a name="propagateToDescendents"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">propagateToDescendents</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var propagateToDescendents:Boolean = true</code><p></p><p></p><p>
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its descendents should enter the state as well.
+		 </p></div><a name="propertyDetail"></a><a name="propagateToSiblings"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">propagateToSiblings</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var propagateToSiblings:Boolean = false</code><p></p><p></p><p>
+		 A flag indicating that when an AxiisSprite enters this state all of
+		 its siblings should enter the state as well.
+		 </p></div><a name="propertyDetail"></a><a name="properties"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">properties</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var properties:Array</code><p></p><p></p><p>
+		 An Array of Strings that define the properties on the corresponding
+		 Objects in the targets Array that should be modified.
+		 </p></div><a name="propertyDetail"></a><a name="targets"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">targets</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var targets:Array</code><p></p><p></p><p>
+		 An Array of Objects that should have one or more of their properties
+		 modified by this state.
+		 </p></div><a name="propertyDetail"></a><a name="values"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">values</td><td class="detailHeaderType">property</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>public var values:Array</code><p></p><p></p><p>
+		 An Array containing the values that the corresponding target's
+		 properties should be set to when this State is applied.
+		 </p></div><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="State()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">State</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function State()</code><p></p><p>
+		 Constructor.
+		 </p></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="apply()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">apply</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code> public function apply():void</code><p></p><p></p><p>
+		 Modifies each Object at index <code>i</code> in the targets Array
+		 by setting its corresponding property, properties[i],
+		 to value[i].
+		 
+		 <p>
+		 In pseudo-code, this amounts to <code>targets[i][properties[i]] = values[i];</code>
+		 for all <code>i</code>.
+		 </p>
+		 </p></div><a name="remove()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">remove</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code> public function remove():void</code><p></p><p></p><p>
+		 Returns the targets' properties to their original values, undoing the
+		 effects of the previous call to apply.
+		 </p></div><br/><br/><hr><br/><p></p><center class="copyright"><footer></footer><br/>Fri Oct 2 2009, 08:24 PM -04:00  </center></div></body></html><!--<br/>Fri Oct 2 2009, 08:24 PM -04:00  -->

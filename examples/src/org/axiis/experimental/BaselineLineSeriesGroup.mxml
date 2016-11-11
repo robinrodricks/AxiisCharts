@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 Copyright (c) 2009 Team Axiis
+
+	 Permission is hereby granted, free of charge, to any person
+	 obtaining a copy of this software and associated documentation
+	 files (the "Software"), to deal in the Software without
+	 restriction, including without limitation the rights to use,
+	 copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 copies of the Software, and to permit persons to whom the
+	 Software is furnished to do so, subject to the following
+	 conditions:
+
+	 The above copyright notice and this permission notice shall be
+	 included in all copies or substantial portions of the Software.
+
+	 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	 OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	 NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	 HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	 OTHER DEALINGS IN THE SOFTWARE.
+-->
+<!--
+	BaselineLineSeriesGroup renders multiple lines for a series of 
+	data points. This implementation was created to improve efficiency. 
+	Instead of drawing line segements for each series per iteration, 
+	all lines are draw in their entirety using a degrafa 
+	GeometryRepeater. This version only supports Baseline type 
+	visualizations, but could be extended or refactored to support
+	other modes in the future.
+-->
+<axiis:BaseLayout
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:axiis="http://www.axiis.org/2009" 
+  xmlns:degrafa="http://www.degrafa.com/2007"
+  xmlns:degrafaCore="com.degrafa.core"
+  showDataTips="false">
+
+
+	<mx:Script>
+	<![CDATA[
+		import com.degrafa.decorators.axiis.BaseLineAreaLineDecorator;
+		import mx.collections.ArrayCollection;
+		import mx.events.IndexChangedEvent;
+		import com.degrafa.core.IGraphicsFill;
+		import com.degrafa.core.IGraphicsStroke;
+		import com.degrafa.paint.SolidStroke;
+		import com.degrafa.decorators.axiis.AreaLineDecorator;
+		import com.degrafa.geometry.segment.MoveTo;
+		import com.degrafa.geometry.segment.ClosePath;
+		import com.degrafa.geometry.segment.LineTo;
+		
+		[Bindable] public var lineStroke : IGraphicsStroke = null;
+		[Bindable] public var areaFill : IGraphicsFill = null;
+
+		public function get showAreaFills() : Boolean
+		{
+			return __showAreaFills;
+		}
+		public function set showAreaFills( val : Boolean ) : void
+		{
+			for ( var i : int = 0; i < dataProvider.length; i++ )
+			{
+				__areaVisibilities[ i ] = val;
+			}
+
+			__showAreaFills = val;
+			
+			invalidateDataProvider();
+		} 
+		
+		public function setAreaFillVisibilityAt( index : int, val : Boolean ) : void
+		{
+			if ( __areaVisibilities[ index ] != val )
+			{
+				__areaVisibilities[ index ] = val;
+			
+				invalidateDataProvider();
+			}
+		}
+		
+		public function moveSeriesAtIndexToTop( index : int ) : void
+		{
+			var ac : ArrayCollection = this.dataProvider as ArrayCollection;
+			ac.addItem( ac.removeItemAt( index ) );
+
+			invalidateDataProvider();
+		} 
+		
+		/**
+		 *  An override of invalidateDataProvider that adds functionality for calcuating 
+		 *  the lines paths for each series.
+		 */ 
+		override public function invalidateDataProvider():void
+		{
+			super.invalidateDataProvider();
+			
+			calculateLinePaths();
+		}
+		
+		/**
+		 *  @protected
+		 * 
+		 *  Converts the data points into path data drawn by the degrafa
+		 *  Path geometrty. 
+		 */
+		protected function calculateLinePaths() : void
+		{
+			var path : Array = null;
+			paths = [];
+			
+			for each ( var seriesSet : Object in dataProvider )
+			{
+				path = [];
+				path.push( new MoveTo( 0, Number(verticalScale.valueToLayout( 
+								seriesSet[ plotCollection ][ 0 ][ dataField ] ) ) ) );
+				for each ( var dataPoint : Object in seriesSet[ plotCollection ] )
+				{
+					path.push( new LineTo( Number( horizontalScale.valueToLayout( 
+												   dataPoint.time ) ), 
+											Number( verticalScale.valueToLayout( 
+													dataPoint[ dataField ] ) ) ) );
+				}
+				
+				path.push( new LineTo( path[ path.length-1 ].x, this.height ) );
+				path.push( new LineTo( 0, this.height ) );
+				path.push( new ClosePath() );
+				
+				paths.push( path );
+			}	
+			
+			geoRepeater.count = paths.length;
+			owner.invalidateDisplayList();
+			
+			__degrafaPaths = [];
+		}
+		
+		/**
+		 *  @proected
+		 * 
+		 *  Handles each iteration of the GeometryRepeater geoRepeater... setting the
+		 *  correct path data at each iteration.
+		 */
+		protected function onIterationChanged() : void
+		{
+			linePath.decorators = [ __decorator ];
+			linePath.segments = paths[ geoRepeater.iteration ];
+			linePath.stroke = lineStroke;
+			
+			if ( __areaVisibilities[ geoRepeater.iteration ] == true )
+			{
+				linePath.fill = areaFill;
+			}	
+			else
+			{
+				linePath.fill = null;
+			}
+			
+			_currentIndex = geoRepeater.iteration;
+			
+			__degrafaPaths.push( linePath );		
+		}
+		
+		/**
+		 *  @protected
+		 * 
+		 *  A two dimensional array of path data for each series in the data viz.
+		 *  paths[ seriesIndex ] <-- set of path data for the series
+		 */
+		protected var paths : Array = null;
+		
+		/**
+		 *  @protected
+		 * 
+		 *  A decorator that removes the last three line segments that connect the path
+		 *  to allow for the proper area to be draw under the line.
+		 */
+		protected var __decorator : BaseLineAreaLineDecorator= new BaseLineAreaLineDecorator();
+		
+		protected var __degrafaPaths : Array = null;
+		protected var __showAreaFills : Boolean = true;
+		protected var __areaVisibilities : Array = [];
+	]]>
+	</mx:Script>
+	
+	<!---
+	The name of the property on the objects in the dataProvider that contains the data to plot
+	-->
+	<mx:String id="plotCollection"/>	
+	
+	<!---
+	The scale used to map values onto the horizontal axis.
+	-->
+	<axiis:LinearScale id="horizontalScale"/>
+	
+	<!---
+	The scale used to map values onto the vertical axis.
+	-->
+	<axiis:LinearScale id="verticalScale"/>	
+	
+	
+	<!---
+	The degrafa geometry that draws the lines.
+	-->
+	<axiis:drawingGeometries>
+		<degrafa:RegularRectangle id="rect" 
+		  width="{width}" 
+		  height="{height}" 
+		  x="0" y="0">	
+			<degrafa:GeometryRepeater id="geoRepeater" 
+			  iterationChanged="onIterationChanged()">
+				<degrafa:Path
+				  id="linePath" 
+				  scaleOnLayout="false"
+				  enableEvents="false"
+				  visible="true" />
+			</degrafa:GeometryRepeater>
+		</degrafa:RegularRectangle>
+	</axiis:drawingGeometries>
+
+</axiis:BaseLayout>
