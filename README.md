@@ -8,23 +8,12 @@ Axiis provides both pre-built visualization components as well as abstract layou
 
 Axiis is built upon the Degrafa graphics framework and Adobe Flex 3.
 
-ts go to Tom Gonzalez and Michael VanDaniker. We owe a special thank to Juan Sanchez of Scalenine and Degrafa for the Axiis logo and web site CSS. Axiis would have never existed without the incredible work of Jason Hawryluk, the architect and primary engineer of Degrafa.
+All credits go to Tom Gonzalez and Michael VanDaniker. We owe a special thank to Juan Sanchez of Scalenine and Degrafa for the Axiis logo and web site CSS. Axiis would have never existed without the incredible work of Jason Hawryluk, the architect and primary engineer of Degrafa.
 
 Version 1.1.
-
 ## Gallery
 
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/bar.jpg]			
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/browsers.jpg]		
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/bubble.jpg]			
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/column.jpg]			
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/hcluster_column.jpg]
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/line_area.jpg]		
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/nested_column.jpg]	
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/smith.jpg]			
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/treemap.jpg]		
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/waterfall.jpg]
-![https://github.com/hgupta9/AxiisCharts/raw/master/images/wedge.jpg]
+![](https://github.com/hgupta9/AxiisCharts/raw/master/images/bar.jpg)		![](https://github.com/hgupta9/AxiisCharts/raw/master/images/browsers.jpg)![](https://github.com/hgupta9/AxiisCharts/raw/master/images/bubble.jpg)			![](https://github.com/hgupta9/AxiisCharts/raw/master/images/column.jpg)			![](https://github.com/hgupta9/AxiisCharts/raw/master/images/hcluster_column.jpg)![](https://github.com/hgupta9/AxiisCharts/raw/master/images/line_area.jpg)		![](https://github.com/hgupta9/AxiisCharts/raw/master/images/nested_column.jpg)	![](https://github.com/hgupta9/AxiisCharts/raw/master/images/smith.jpg)			![](https://github.com/hgupta9/AxiisCharts/raw/master/images/treemap.jpg)		![](https://github.com/hgupta9/AxiisCharts/raw/master/images/waterfall.jpg)![](https://github.com/hgupta9/AxiisCharts/raw/master/images/wedge.jpg)
 
 ## Features
 
